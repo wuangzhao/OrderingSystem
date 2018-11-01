@@ -7,4 +7,6 @@ public interface foodDao {
     int insert(foodEntity food);
 
     int delete(String uuid);
+
+    foodEntity queryByFoodId(String foodId);
 }

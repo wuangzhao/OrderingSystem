@@ -34,10 +34,16 @@ public class foodDaoTest {
 
     @Test
     public void deleteTest(){
-        int i = foodDao.delete("978940f0-b47d-4f8a-a153-4226c2aa8565");
+        int i = foodDao.delete("f6fc3c4c-feba-4de4-95ab-8c863c0a6465");
         assertEquals(i, 1);
     }
 
+
+    @Test
+    public void queryByFoodId(){
+        foodEntity food = foodDao.queryByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
+        assertEquals(food.getFoodId(), "4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
+    }
 
 
 }

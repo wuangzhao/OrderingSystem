@@ -10,4 +10,10 @@
         DELETE FROM food
         WHERE food_id = #{uuid}
     </delete>
+
+    <select id="queryByFoodId" parameterType="string" resultType="com.angzhao.entity.foodEntity">
+        SELECT * FROM food
+        WHERE food_id = #{foodId}
+    </select>
+
 </mapper>
