@@ -40,7 +40,7 @@ public class foodDaoTest {
 
 
     /**
-     * 
+     *
      */
     @Test
     public void queryByFoodId(){
