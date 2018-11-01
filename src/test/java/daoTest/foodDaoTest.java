@@ -19,6 +19,10 @@ public class foodDaoTest {
     @Autowired
     foodDao foodDao;
 
+    /**
+     *
+     */
+
     @Test
     public void insertTest(){
         foodEntity food = new foodEntity();
