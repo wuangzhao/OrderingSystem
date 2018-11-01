@@ -38,6 +38,10 @@ public class foodDaoTest {
         assertEquals(i, 1);
     }
 
+
+    /**
+     *
+     */
     @Test
     public void queryByFoodId(){
         foodEntity food = foodDao.queryByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
