@@ -16,4 +16,6 @@ public class foodServiceImpl implements foodService {
     public foodEntity getByFoodId(String foodId) {
         return foodDao.queryByFoodId(foodId);
     }
+
+
 }

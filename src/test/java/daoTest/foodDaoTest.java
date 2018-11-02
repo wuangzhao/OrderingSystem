@@ -52,5 +52,10 @@ public class foodDaoTest {
         assertEquals(food.getFoodId(), "4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
     }
 
+    @Test
+    public void update(){
+        foodEntity food = new foodEntity();
+    }
+
 
 }

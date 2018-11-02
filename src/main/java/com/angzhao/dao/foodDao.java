@@ -9,4 +9,6 @@ public interface foodDao {
     int delete(String uuid);
 
     foodEntity queryByFoodId(String foodId);
+
+    int update(foodEntity food);
 }

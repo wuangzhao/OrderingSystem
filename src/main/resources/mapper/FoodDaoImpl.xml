@@ -6,6 +6,12 @@
         INSERT INTO food(food_name, food_img, food_price, food_reserve, food_details, food_id)
         VALUES (#{foodName}, #{foodImg}, #{foodPrice}, #{foodReserve}, #{foodDetails}, #{foodId})
     </insert>
+
+    <update id="update" parameterType="com.angzhao.entity.foodEntity">
+        UPDATE food SET food_name = #{foodName},food_img = #{foodImg}, food_Price = #{foodPrice},food_Reserve = #{foodReserve},food_Details = #{foodDetails},food_Id = #{foodId}
+        WHERE food_id = #{foodId}
+    </update>
+
     <delete id="delete" parameterType="string">
         DELETE FROM food
         WHERE food_id = #{uuid}
