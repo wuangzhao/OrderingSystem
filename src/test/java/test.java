@@ -14,7 +14,9 @@ public class test {
     @Test
     public void test() {
         List<String> picList = new ArrayList<>();
-        File picPath = new File("/Users/angzhao/Desktop/Ordering/src/main/webapp/images/home");
+        File path = new File("");
+        System.out.println(path.getAbsolutePath());
+        File picPath = new File(path.getAbsolutePath() + "/src/main/webapp/images/home");
         File[] showPicList = picPath.listFiles();
         for (int i = 0; i < showPicList.length; i++) {
             picList.add(showPicList[i].getName());
@@ -22,5 +24,11 @@ public class test {
         for (String s : picList) {
             System.out.println(s);
         }
+    }
+
+    @Test
+    public void print() {
+        File picPath = new File("");
+        System.out.println(picPath.getAbsolutePath());
     }
 }

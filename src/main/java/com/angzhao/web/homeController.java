@@ -1,6 +1,9 @@
 package com.angzhao.web;
 
 import com.angzhao.entity.foodEntity;
+import com.angzhao.service.foodService;
+import com.angzhao.service.homeImgService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,47 +17,21 @@ import java.util.List;
 @RequestMapping("/home")
 public class homeController {
 
+    @Autowired
+    foodService foodService;
+
+    @Autowired
+    homeImgService homeImgService;
 
     @RequestMapping("")
     public String showPic(Model model) {
-        List<String> picList = new ArrayList<>();
-        File picPath = new File("/Users/angzhao/Desktop/Ordering/src/main/webapp/images/home");
-        File[] showPicList = picPath.listFiles();
-        for (int i = 0; i < showPicList.length; i++) {
-            picList.add(showPicList[i].getName());
-        }
+        List<String> picList = homeImgService.getAllImgName();
 
-        foodEntity food1 = new foodEntity();
-        food1.setFoodDetails("abc");
-        food1.setFoodImg("p.png");
-        food1.setFoodName("名字1");
-        food1.setFoodPrice(12);
-        food1.setFoodReserve(100);
-        food1.setFoodId("10000");
+        foodEntity food1 = foodService.getByFoodId("fd_1000a001");
+        foodEntity food2 = foodService.getByFoodId("fd_1000a002");
+        foodEntity food3 = foodService.getByFoodId("fd_1000a003");
+        foodEntity food4 = foodService.getByFoodId("fd_1000a004");
 
-        foodEntity food2 = new foodEntity();
-        food2.setFoodDetails("abc");
-        food2.setFoodImg("p1.png");
-        food2.setFoodName("名字2");
-        food2.setFoodPrice(22);
-        food2.setFoodReserve(100);
-        food2.setFoodId("10001");
-
-        foodEntity food3 = new foodEntity();
-        food3.setFoodDetails("abc");
-        food3.setFoodImg("p2.png");
-        food3.setFoodName("名字3");
-        food3.setFoodPrice(22);
-        food3.setFoodReserve(100);
-        food3.setFoodId("10001");
-
-        foodEntity food4 = new foodEntity();
-        food4.setFoodDetails("abc");
-        food4.setFoodImg("p3.png");
-        food4.setFoodName("名字4");
-        food4.setFoodPrice(22);
-        food4.setFoodReserve(100);
-        food4.setFoodId("10001");
 
 
         List<foodEntity> foodEntityList = new ArrayList<>();

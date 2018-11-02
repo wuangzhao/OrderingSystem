@@ -1,6 +1,8 @@
 package com.angzhao.web;
 
 import com.angzhao.entity.foodEntity;
+import com.angzhao.service.foodService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,19 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("detail")
 public class detailController {
 
+    @Autowired
+    foodService foodService;
 
     @RequestMapping()
-    public String detailHome(Integer foodId, Model model){
-        //TODO 数据库通过id查询出foodEntity
-//       foodEntity food = foodDao.queryById(foodId);
-        foodEntity food1 = new foodEntity();
-        food1.setFoodDetails("abc");
-        food1.setFoodImg("detail.png");
-        food1.setFoodName("名字1");
-        food1.setFoodPrice(12);
-        food1.setFoodReserve(100);
-
-        model.addAttribute("food", food1);
+    public String detailHome(String foodId, Model model){
+        foodEntity food = foodService.getByFoodId(foodId);
+        model.addAttribute("food", food);
         return "detail";
     }
 }

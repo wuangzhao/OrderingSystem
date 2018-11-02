@@ -45,7 +45,7 @@
     </a> </li>
 </ul>
 <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default title" >
-    <h2 class="am-titlebar-title "> 积分菜品 </h2>
+    <h2 class="am-titlebar-title "> 热门推荐 </h2>
     <nav class="am-titlebar-nav"> <a href="#more" class="">more &raquo;</a> </nav>
 </div>
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default product">
