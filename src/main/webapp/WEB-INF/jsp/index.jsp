@@ -34,13 +34,13 @@
 
 <input type="text" class="search"/>
 <ul class="nav">
-    <li> <a href="search.html"> <img src="images/icon.jpg" />
-        <p>最新推荐</p>
+    <li> <a href=""> <img src="images/icon.jpg" />
+        <p>当季新品</p>
     </a> </li>
-    <li> <a href="search.html"> <img src="images/icon1.jpg" />
+    <li> <a href="/recommend"> <img src="images/icon1.jpg" />
         <p>热门菜谱</p>
     </a> </li>
-    <li> <a href="search.html"> <img src="images/icon2.jpg" />
+    <li> <a href=""> <img src="images/icon2.jpg" />
         <p>人气菜肴</p>
     </a> </li>
 </ul>
@@ -52,7 +52,7 @@
     <c:forEach items="${foods}" var="food">
         <li>
             <div class="am-gallery-item">
-                <a href="/detail?foodId=${food.foodId}" class=""> <img src="images/${food.foodImg}"  alt=""/>
+                <a href="/detail?foodId=${food.foodId}" class=""> <img src="images/foodImg/${food.foodImg}"  alt=""/>
                     <h3 class="am-gallery-title">${food.foodName}</h3>
                     <div class="am-gallery-desc"> <em>${food.foodPrice}</em><i class="am-icon-cart-plus"></i> </div>
                 </a>

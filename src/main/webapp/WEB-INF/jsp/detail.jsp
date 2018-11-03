@@ -24,7 +24,7 @@
 <body>
 <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}' >
     <ul class="am-slides">
-        <li><img src="images/${food.foodImg}"> </li>
+        <li><img src="images/foodImg/${food.foodImg}"> </li>
 
     </ul>
 </div>
