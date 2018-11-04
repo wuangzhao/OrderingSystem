@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.angzhao.dao.homeImgDao">
+    <insert id="insertHomeImg" parameterType="com.angzhao.entity.foodEntity">
+        INSERT INTO home_img(homeimg_id,homeimg_img)
+        VALUES (#{homeImgId},#{homeImg_img})
+    </insert>
+
+    <delete id="deleteHomeImg" parameterType="string">
+        DELETE FROM home_img
+        WHERE homeimg_id = #{homeImgId}
+    </delete>
+
+    <update id="updateHomeImg" parameterType="com.angzhao.entity.foodEntity">
+        UPDATE food_info SET food_name = #{foodName},food_img = #{foodImg}, food_Price = #{foodPrice},food_Reserve = #{foodReserve},food_Details = #{foodDetails},food_Id = #{foodId}
+        WHERE food_id = #{foodId}
+    </update>
+
     <select id="queryAllImgName" resultType="java.lang.String">
         SELECT homeimg_img FROM home_img
     </select>

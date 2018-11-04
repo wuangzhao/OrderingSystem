@@ -4,11 +4,11 @@ import com.angzhao.entity.foodEntity;
 
 public interface foodDao {
 
-    int insert(foodEntity food);
+    int insertByFoods(foodEntity food);
 
-    int delete(String foodId);
+    int deleteByFoods(String foodId);
+
+    int updateByFoods(foodEntity food);
 
     foodEntity queryByFoodId(String foodId);
-
-    int update(foodEntity food);
 }

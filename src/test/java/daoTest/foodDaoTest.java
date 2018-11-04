@@ -26,7 +26,7 @@ public class foodDaoTest {
     @Test
     public void insertTest1() {
         foodEntity food = foodService.insertFoodByFooId(UUID.randomUUID().toString(),"黄焖鸡","0.png",20,40,"很好吃吧");
-        int i = foodDao.insert(food);
+        int i = foodDao.insertByFoods(food);
         assertEquals(i, 1);
     }
 

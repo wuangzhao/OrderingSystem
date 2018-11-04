@@ -36,7 +36,7 @@ public class foodServiceImpl implements foodService {
     public int deleteFoodByFoodId(String foodId) {
         foodEntity food = foodDao.queryByFoodId(foodId);
         if(food != null) {
-            foodDao.delete(foodId);
+            foodDao.deleteByFoods(foodId);
             return 1;
         }
         else{
@@ -52,9 +52,9 @@ public class foodServiceImpl implements foodService {
             return null;
         } else {
             food.setFoodName(foodName);
-            foodDao.update(food);
+            foodDao.updateByFoods(food);
         }
-        if (foodDao.update(food) == 1) {
+        if (foodDao.updateByFoods(food) == 1) {
             return food;
         } else {
             return null;
@@ -69,9 +69,9 @@ public class foodServiceImpl implements foodService {
             return null;
         } else {
             food.setFoodDetails(foodDetails);
-            foodDao.update(food);
+            foodDao.updateByFoods(food);
         }
-        if (foodDao.update(food) == 1) {
+        if (foodDao.updateByFoods(food) == 1) {
             return food;
         } else {
             return null;
@@ -86,9 +86,9 @@ public class foodServiceImpl implements foodService {
             return null;
         } else {
             food.setFoodImg(foodImg);
-            foodDao.update(food);
+            foodDao.updateByFoods(food);
         }
-        if (foodDao.update(food) == 1) {
+        if (foodDao.updateByFoods(food) == 1) {
             return food;
         } else {
             return null;
@@ -103,9 +103,9 @@ public class foodServiceImpl implements foodService {
             return null;
         } else {
             food.setFoodPrice(foodPrice);
-            foodDao.update(food);
+            foodDao.updateByFoods(food);
         }
-        if (foodDao.update(food) == 1) {
+        if (foodDao.updateByFoods(food) == 1) {
             return food;
         } else {
             return null;
@@ -120,9 +120,9 @@ public class foodServiceImpl implements foodService {
             return null;
         } else {
             food.setFoodReserve(foodReserve);
-            foodDao.update(food);
+            foodDao.updateByFoods(food);
         }
-        if (foodDao.update(food) == 1) {
+        if (foodDao.updateByFoods(food) == 1) {
             return food;
         } else {
             return null;
