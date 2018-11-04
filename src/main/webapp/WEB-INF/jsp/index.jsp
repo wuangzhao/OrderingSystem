@@ -32,7 +32,9 @@
     </ul>
 </div>
 
-<input type="text" class="search"/>
+<form action="/search">
+    <input type="text" class="search" name="text"/>
+</form>
 <ul class="nav">
     <li> <a href=""> <img src="images/icon.jpg" />
         <p>当季新品</p>

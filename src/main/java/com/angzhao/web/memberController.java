@@ -14,6 +14,7 @@ public class memberController {
     public String memberPage(Model model) {
         userEntity user = new userEntity();
         user.setUsername("123");
+        model.addAttribute("userId", user.getUserId());
         model.addAttribute("username", user.getUsername());
         return "member";
     }

@@ -6,6 +6,8 @@ import com.angzhao.service.foodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class foodServiceImpl implements foodService {
 
@@ -139,5 +141,10 @@ public class foodServiceImpl implements foodService {
         else{
             return null;
         }
+    }
+
+    @Override
+    public List<foodEntity> getFoodListByFoodName(String foodName) {
+        return foodDao.queryByFoodName(foodName);
     }
 }
