@@ -6,7 +6,7 @@ public interface foodDao {
 
     int insert(foodEntity food);
 
-    int delete(String uuid);
+    int delete(String foodId);
 
     foodEntity queryByFoodId(String foodId);
 

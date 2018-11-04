@@ -3,22 +3,22 @@
 <mapper namespace="com.angzhao.dao.foodDao">
 
     <insert id="insert" parameterType="com.angzhao.entity.foodEntity">
-        INSERT INTO food(food_name, food_img, food_price, food_reserve, food_details, food_id)
-        VALUES (#{foodName}, #{foodImg}, #{foodPrice}, #{foodReserve}, #{foodDetails}, #{foodId})
+        INSERT INTO food_info( food_id,food_name, food_img, food_price, food_reserve, food_details)
+        VALUES (#{foodId},#{foodName}, #{foodImg}, #{foodPrice}, #{foodReserve}, #{foodDetails})
     </insert>
 
     <update id="update" parameterType="com.angzhao.entity.foodEntity">
-        UPDATE food SET food_name = #{foodName},food_img = #{foodImg}, food_Price = #{foodPrice},food_Reserve = #{foodReserve},food_Details = #{foodDetails},food_Id = #{foodId}
+        UPDATE food_info SET food_name = #{foodName},food_img = #{foodImg}, food_Price = #{foodPrice},food_Reserve = #{foodReserve},food_Details = #{foodDetails},food_Id = #{foodId}
         WHERE food_id = #{foodId}
     </update>
 
     <delete id="delete" parameterType="string">
-        DELETE FROM food
-        WHERE food_id = #{uuid}
+        DELETE FROM food_info
+        WHERE food_id = #{foodId}
     </delete>
 
     <select id="queryByFoodId" parameterType="string" resultType="com.angzhao.entity.foodEntity">
-        SELECT * FROM food
+        SELECT * FROM food_info
         WHERE food_id = #{foodId}
     </select>
 

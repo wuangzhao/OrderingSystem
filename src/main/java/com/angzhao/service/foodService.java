@@ -9,6 +9,15 @@ public interface foodService {
      * @param foodId
      * @return
      */
-    foodEntity getByFoodId(String foodId);
+    foodEntity insertFoodByFooId(String foodId,String foodName,String foodImg,int foodPrice,int foodReserve,String foodDetails);
 
+    int deleteFoodByFoodId(String foodId);
+
+    foodEntity updateFoodNameByFoodId(String foodId, String foodName);
+    foodEntity updateFoodImgByFoodId(String foodId, String foodImg);
+    foodEntity updateFoodPriceByFoodId(String foodId, int foodPrice);
+    foodEntity updateFoodReserveByFoodId(String foodId, int foodReserve);
+    foodEntity updateFoodDetailsByFoodId(String foodId, String foodDetails);
+
+    foodEntity getByFoodId(String foodId);
 }

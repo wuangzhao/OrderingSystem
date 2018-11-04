@@ -2,6 +2,7 @@ package daoTest;
 
 import com.angzhao.dao.foodDao;
 import com.angzhao.entity.foodEntity;
+import com.angzhao.service.Impl.foodServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,43 +20,94 @@ public class foodDaoTest {
     @Autowired
     foodDao foodDao;
 
-    /**
-     *
-     */
+    @Autowired
+    foodServiceImpl foodService;
 
     @Test
-    public void insertTest(){
-        foodEntity food = new foodEntity();
-        food.setFoodId(UUID.randomUUID().toString());
-        food.setFoodReserve(100);
-        food.setFoodPrice(12);
-        food.setFoodName("测试1");
-        food.setFoodImg("3.png");
-        food.setFoodDetails("详情1");
+    public void insertTest1() {
+        foodEntity food = foodService.insertFoodByFooId(UUID.randomUUID().toString(),"黄焖鸡","0.png",20,40,"很好吃吧");
         int i = foodDao.insert(food);
         assertEquals(i, 1);
     }
 
     @Test
     public void deleteTest(){
-        int i = foodDao.delete("f6fc3c4c-feba-4de4-95ab-8c863c0a6465");
-        assertEquals(i, 1);
-    }
-
-
-    /**
-     *
-     */
-    @Test
-    public void queryByFoodId(){
-        foodEntity food = foodDao.queryByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
-        assertEquals(food.getFoodId(), "4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
+        int results = foodService.deleteFoodByFoodId("100010");
+        if(results == 1) {
+            System.out.println("删除成功！");
+        }
+        else {
+            System.out.println("删除错误！");
+        }
     }
 
     @Test
-    public void update(){
-        foodEntity food = new foodEntity();
+    public void updateFoodNameTest() {
+        foodEntity food = foodService.updateFoodNameByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e","测试名称");
+        if(food != null) {
+            System.out.println("修改成功");
+        }
+        else {
+            System.out.println("ID不存在！");
+        }
     }
 
+    @Test
+    public void updateFoodImgTest() {
+        foodEntity food = foodService.updateFoodImgByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e","null.png");
+        if(food != null) {
+            System.out.println("修改成功");
+        }
+        else {
+            System.out.println("ID不存在！");
+        }
+    }
 
+    @Test
+    public void updateFoodPriceTest() {
+        foodEntity food = foodService.updateFoodPriceByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e",99999);
+        if(food != null) {
+            System.out.println("修改成功");
+        }
+        else {
+            System.out.println("ID不存在！");
+        }
+    }
+
+    @Test
+    public void updateFoodReserveTest() {
+        foodEntity food = foodService.updateFoodReserveByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e",88888);
+        if(food != null) {
+            System.out.println("修改成功");
+        }
+        else {
+            System.out.println("ID不存在！");
+        }
+    }
+
+    @Test
+    public void updateFoodDetailsTest() {
+        foodEntity food = foodService.updateFoodDetailsByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e","测试详情");
+        if(food != null) {
+            System.out.println("修改成功");
+        }
+        else {
+            System.out.println("ID不存在！");
+        }
+    }
+
+    @Test
+    public void queryTest() {
+        foodEntity food = foodService.getByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e");
+        if(food != null) {
+            System.out.print(food.getFoodName()+" ");
+            System.out.print(food.getFoodImg()+" ");
+            System.out.print(food.getFoodPrice()+" ");
+            System.out.print(food.getFoodReserve()+" ");
+            System.out.println(food.getFoodDetails());
+        }
+        else {
+            System.out.println("ID不存在！");
+        }
+    }
 }
