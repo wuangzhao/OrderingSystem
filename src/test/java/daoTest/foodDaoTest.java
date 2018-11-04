@@ -110,4 +110,11 @@ public class foodDaoTest {
             System.out.println("ID不存在！");
         }
     }
+
+    @Test
+    public void queryFoodListByFoodName() {
+        for (foodEntity foodEntity : foodDao.queryByFoodName("测试")) {
+            System.out.println(foodEntity.getFoodName());
+        }
+    }
 }

@@ -39,15 +39,9 @@
 <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
     <ul class="am-navbar-nav am-cf am-avg-sm-4">
         <li >
-            <a href="../jsp/index.html" class="">
+            <a href="/home" class="">
                 <span class=""><img src="images/nav.png"/></span>
                 <span class="am-navbar-label">点餐</span>
-            </a>
-        </li>
-        <li>
-            <a href="speak.html" class="">
-                <span class=""><img src="images/nav2.png"/></span>
-                <span class="am-navbar-label">客说</span>
             </a>
         </li>
         <li>
@@ -57,7 +51,7 @@
             </a>
         </li>
         <li >
-            <a href="member.html" class="">
+            <a href="/member" class="">
                 <span class=""><img src="images/nav4.png"/></span>
                 <span class="am-navbar-label">我的</span>
             </a>

@@ -33,7 +33,9 @@
     </div>
 </header>
 <div class="search-input">
-    <input type="text" placeholder="请输入您搜索的内容" />
+    <form action="/search">
+        <input type="text" placeholder="请输入您搜索的内容" name="text"/>
+    </form>
 </div>
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default product">
 <c:forEach items="${foods}" var="food">
