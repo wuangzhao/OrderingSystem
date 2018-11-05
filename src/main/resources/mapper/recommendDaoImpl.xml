@@ -11,11 +11,11 @@
 
     <delete id="deleteRecommendId" parameterType="com.angzhao.entity.foodEntity">
         DELETE FROM recommend_info
-        WHERE food_id = #{foodEntity.foodId}
+        WHERE food_id = #{foodId}
     </delete>
 
     <select id="queryRecommendId" resultType="com.angzhao.entity.foodEntity">
         SELECT * FROM recommend_info
-        WHERE food_id = #{foodEntity.foodId}
+        WHERE food_id = #{foodId}
     </select>
 </mapper>
