@@ -115,6 +115,10 @@ li {
     height: 50px;
 }
 
+.h100 {
+    height: 100px;
+}
+
 .title {
     background: #fff;
 }
@@ -294,7 +298,7 @@ li {
 .fixed-btn {
     position: fixed;
     bottom: 0;
-    height: 50px;
+    height: 100px;
     background: #fff;
     width: 100%;
 }

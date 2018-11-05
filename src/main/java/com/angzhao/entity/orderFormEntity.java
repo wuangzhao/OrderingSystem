@@ -8,6 +8,16 @@ public class orderFormEntity {
 
     private int price;
 
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public String getOrderFormId() {
         return orderFormId;
     }
