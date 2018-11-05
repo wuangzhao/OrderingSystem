@@ -7,6 +7,8 @@ public class orderFormEntity {
     private String userId;
 
     private int price;
+    
+    private int status;
 
     public String getOrderFormId() {
         return orderFormId;
