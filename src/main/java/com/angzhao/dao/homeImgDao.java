@@ -8,10 +8,12 @@ public interface homeImgDao {
 
     int insertHomeImg(homeImgEntity homeImg);
 
-    int deleteHomeImg(String homeImgId);
+    int deleteHomeImg(int homeImgId);
 
     int updateHomeImg(homeImgEntity homeImg);
 
-    List<homeImgEntity> queryAllImgName();
+    homeImgEntity queryHomeImg(int homeImgId);
+
+    List<homeImgEntity> queryAllImgName(int homeImgId);
 
 }

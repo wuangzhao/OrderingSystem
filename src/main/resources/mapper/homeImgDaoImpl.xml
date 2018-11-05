@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.angzhao.dao.homeImgDao">
     <insert id="insertHomeImg" parameterType="com.angzhao.entity.homeImgEntity">
-        INSERT INTO home_img(home_img_id,home_img_path)
-        VALUES (#{homeImgId},#{homeImgPath})
+        INSERT INTO home_img(home_img_path)
+        VALUES #{homeImgPath}
     </insert>
 
-    <delete id="deleteHomeImg" parameterType="java.lang.String">
+    <delete id="deleteHomeImg" parameterType="int">
         DELETE FROM home_img
         WHERE home_img_id = #{homeImgId}
     </delete>
@@ -16,7 +16,12 @@
         WHERE homeimg_id = #{homeImgId}
     </update>
 
-    <select id="queryAllImgName" parameterType="java.lang.String" resultType="com.angzhao.entity.homeImgEntity">
+    <select id="queryHomeImg" parameterType="int" resultType="com.angzhao.entity.homeImgEntity">
+        SELECT * FROM home_img
+        WHERE home_img_id = #{homeImgId}
+    </select>
+
+    <select id="queryAllImgName" parameterType="int" resultType="com.angzhao.entity.homeImgEntity">
         SELECT * FROM home_img
         WHERE home_img_id = #{homeImgId}
     </select>

@@ -2,15 +2,13 @@ package com.angzhao.entity;
 
 public class homeImgEntity {
 
-    private String homeImgId;
+    private int homeImgId;
 
     private String homeImgPath;
 
-    public String getHomeImgId() {
-        return homeImgId;
-    }
+    public int getHomeImgId() { return homeImgId; }
 
-    public void setHomeImgId(String homeImgId) {
+    public void setHomeImgId(int homeImgId) {
         this.homeImgId = homeImgId;
     }
 

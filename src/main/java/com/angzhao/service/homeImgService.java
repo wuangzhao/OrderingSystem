@@ -6,11 +6,13 @@ import java.util.List;
 
 public interface homeImgService {
 
-    int insertHomeImg();
+    int insertHomeImg(String homeImgPath);
 
-    int deleteHomeImg();
+    int deleteHomeImg(int homeImgId);
 
-    int updateHomeIMg();
+    int updateHomeImg(int homeImgId,String homeImgPath);
 
-    List<homeImgEntity> getAllImgName();
+    int queryHomeImg(int homeImgId);
+
+    List<homeImgEntity> getAllImgName(int homeImgId);
 }

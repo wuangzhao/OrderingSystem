@@ -2,8 +2,6 @@ package daoTest;
 
 import com.angzhao.dao.foodDao;
 import com.angzhao.entity.foodEntity;
-import com.angzhao.entity.orderFormEntity;
-import com.angzhao.enums.orderFormEnums;
 import com.angzhao.service.Impl.foodServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +24,7 @@ public class foodDaoTest {
     foodServiceImpl foodService;
 
     @Test
-    public void insertTest1() {
+    public void insertTest() {
         foodEntity food = foodService.insertFoodByFooId(UUID.randomUUID().toString(),"黄焖鸡","0.png",20,40,"很好吃吧");
         int i = foodDao.insertByFoods(food);
         assertEquals(i, 1);
@@ -113,10 +111,10 @@ public class foodDaoTest {
         }
     }
 
-//    @Test
-//    public void queryFoodListByFoodName() {
-//        for (foodEntity foodEntity : foodDao.queryByFoodName("测试")) {
-//            System.out.println(foodEntity.getFoodName());
-//        }
-//    }
+    @Test
+    public void queryFoodListByFoodName() {
+        for (foodEntity foodEntity : foodDao.queryByFoodName("测试")) {
+            System.out.println(foodEntity.getFoodName());
+        }
+    }
 }
