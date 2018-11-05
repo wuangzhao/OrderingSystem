@@ -2,6 +2,8 @@ package com.angzhao.dao;
 
 import com.angzhao.entity.foodEntity;
 
+import java.util.List;
+
 public interface foodDao {
 
     int insertByFoods(foodEntity food);
@@ -11,4 +13,6 @@ public interface foodDao {
     int updateByFoods(foodEntity food);
 
     foodEntity queryByFoodId(String foodId);
+
+    List<foodEntity> queryByFoodName(String foodName);
 }

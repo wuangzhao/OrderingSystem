@@ -1,18 +1,17 @@
 package com.angzhao.dao;
 
-import com.angzhao.entity.foodEntity;
+import com.angzhao.entity.homeImgEntity;
 
 import java.util.List;
 
 public interface homeImgDao {
 
-    int insertHomeImg(String homeImgId);
+    int insertHomeImg(homeImgEntity homeImg);
 
     int deleteHomeImg(String homeImgId);
 
-    int updateHomeImg(foodEntity food);
+    int updateHomeImg(homeImgEntity homeImg);
 
-    List<String> queryAllImgName();
-
+    List<homeImgEntity> queryAllImgName();
 
 }

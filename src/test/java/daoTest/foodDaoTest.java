@@ -111,10 +111,10 @@ public class foodDaoTest {
         }
     }
 
-    @Test
-    public void queryFoodListByFoodName() {
-        for (foodEntity foodEntity : foodDao.queryByFoodName("测试")) {
-            System.out.println(foodEntity.getFoodName());
-        }
-    }
+//    @Test
+//    public void queryFoodListByFoodName() {
+//        for (foodEntity foodEntity : foodDao.queryByFoodName("测试")) {
+//            System.out.println(foodEntity.getFoodName());
+//        }
+//    }
 }

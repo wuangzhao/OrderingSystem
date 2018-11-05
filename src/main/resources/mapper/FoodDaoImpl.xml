@@ -21,6 +21,7 @@
         SELECT * FROM food_info
         WHERE food_id = #{foodId}
     </select>
+
     <select id="queryByFoodName" resultType="com.angzhao.entity.foodEntity" parameterType="string">
         SELECT * FROM food_info
         WHERE food_name LIKE CONCAT(CONCAT('%',#{foodName}),'%')

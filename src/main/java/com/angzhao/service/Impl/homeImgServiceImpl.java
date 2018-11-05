@@ -1,6 +1,7 @@
 package com.angzhao.service.Impl;
 
 import com.angzhao.dao.homeImgDao;
+import com.angzhao.entity.homeImgEntity;
 import com.angzhao.service.homeImgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ public class homeImgServiceImpl implements homeImgService {
     homeImgDao homeImgDao;
 
     @Override
-    public List<String> getAllImgName() {
+    public List<homeImgEntity> getAllImgName() {
         return homeImgDao.queryAllImgName();
     }
 }
