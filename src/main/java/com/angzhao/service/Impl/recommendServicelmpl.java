@@ -19,7 +19,7 @@ public class recommendServicelmpl implements recommendService{
     recommendDao recommendDao;
 
     @Override
-    public int inserttRecommendFood(foodEntity food) {
+    public int insertRecommendFood(foodEntity food) {
         int i = recommendDao.insertRecommendId(food);
         if (i == 1) {
             return 1;
@@ -30,7 +30,7 @@ public class recommendServicelmpl implements recommendService{
     }
 
     @Override
-    public int deteleRecommendFood(foodEntity food) {
+    public int deleteRecommendFood(foodEntity food) {
         int i = recommendDao.deleteRecommendId(food);
         if (i == 1) {
             return 1;

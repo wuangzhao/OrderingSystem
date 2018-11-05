@@ -4,6 +4,7 @@ package daoTest;
 import com.angzhao.dao.foodDao;
 import com.angzhao.entity.foodEntity;
 import com.angzhao.service.recommendService;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,9 +24,10 @@ public class recommendDaoTest {
     @Autowired
     recommendService recommendService;
 
+    @Test
     public void insertRecommendTest() {
         foodEntity food = foodDao.queryByFoodId("fd_1000a001");
-        int i = recommendService.inserttRecommendFood(food);
+        int i = recommendService.insertRecommendFood(food);
         if(i == 1) {
             System.out.println("插入成功");
         }
@@ -36,7 +38,7 @@ public class recommendDaoTest {
 
     public void deleteRecommendTest() {
         foodEntity food = foodDao.queryByFoodId("fd_1000a001");
-        int i = recommendService.deteleRecommendFood(food);
+        int i = recommendService.deleteRecommendFood(food);
         if(i == 1) {
             System.out.println("删除成功");
         }
