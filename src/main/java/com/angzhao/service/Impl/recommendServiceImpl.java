@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class recommendServicelmpl implements recommendService{
+public class recommendServiceImpl implements recommendService{
 
     @Autowired
     recommendDao recommendDao;

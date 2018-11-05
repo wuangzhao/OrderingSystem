@@ -2,6 +2,7 @@ package daoTest;
 
 
 import com.angzhao.dao.foodDao;
+import com.angzhao.dao.recommendDao;
 import com.angzhao.entity.foodEntity;
 import com.angzhao.service.recommendService;
 import org.junit.Test;
@@ -9,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:spring/spring-dao.xml", "classpath:spring/spring-service.xml" })
@@ -19,36 +22,14 @@ public class recommendDaoTest {
      */
 
     @Autowired
-    foodDao foodDao;
+    recommendDao recommendDao;
 
-    @Autowired
-    recommendService recommendService;
 
     @Test
-    public void insertRecommendTest() {
-        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
-        int i = recommendService.insertRecommendFood(food);
-        if(i == 1) {
-            System.out.println("插入成功");
-        }
-        else {
-            System.out.println("插入失败");
-        }
-    }
-
-    public void deleteRecommendTest() {
-        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
-        int i = recommendService.deleteRecommendFood(food);
-        if(i == 1) {
-            System.out.println("删除成功");
-        }
-        else {
-            System.out.println("删除失败");
-        }
-    }
-
-    public void queryRecommendTest() {
-        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
-        recommendService.queryRecommendFood(food);
+    public void insert() {
+        foodEntity foodEntity = new foodEntity();
+        foodEntity.setFoodId("123456");
+        int i = recommendDao.insertRecommendId(foodEntity);
+        assertEquals(i, 1);
     }
 }

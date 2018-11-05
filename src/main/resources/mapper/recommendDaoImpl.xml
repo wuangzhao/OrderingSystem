@@ -3,9 +3,11 @@
 <mapper namespace="com.angzhao.dao.recommendDao">
 
     <insert id="insertRecommendId" parameterType="com.angzhao.entity.foodEntity">
-        INSERT INTO recommend_info(food_id)
-        VALUES (#{foodEntity.foodId})
+        INSERT INTO recommend_info( food_id)
+        VALUES (#{foodId})
     </insert>
+
+
 
     <delete id="deleteRecommendId" parameterType="com.angzhao.entity.foodEntity">
         DELETE FROM recommend_info
