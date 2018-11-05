@@ -17,6 +17,7 @@
     </update>
 
     <select id="queryAllImgName" parameterType="java.lang.String" resultType="com.angzhao.entity.homeImgEntity">
-        SELECT homeimg_id FROM home_img
+        SELECT * FROM home_img
+        WHERE homeimg_id = #{homeImgId}
     </select>
 </mapper>

@@ -15,6 +15,22 @@ public class homeImgServiceImpl implements homeImgService {
     homeImgDao homeImgDao;
 
     @Override
+    public int insertHomeImg() {
+
+        return 0;
+    }
+
+    @Override
+    public int deleteHomeImg() {
+        return 0;
+    }
+
+    @Override
+    public int updateHomeIMg() {
+        return 0;
+    }
+
+    @Override
     public List<homeImgEntity> getAllImgName() {
         return homeImgDao.queryAllImgName();
     }
