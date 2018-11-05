@@ -11491,7 +11491,8 @@ tbody.am-collapse.am-in {
     display: inline-block;
     min-width: 36px;
     text-align: center;
-    color: #eee
+    color: #eee;
+    margin-top: 10px
 }
 
 .am-header-default .am-header-nav > a + a {

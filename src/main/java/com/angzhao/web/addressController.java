@@ -1,6 +1,8 @@
 package com.angzhao.web;
 
 import com.angzhao.entity.addressEntity;
+import com.angzhao.service.addressInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,23 +14,12 @@ import java.util.List;
 @RequestMapping("address")
 public class addressController {
 
+    @Autowired
+    addressInfoService addressInfoService;
+
     @RequestMapping("")
     public String addressPage(String userId, Model model) {
-        List<addressEntity> addressList = new ArrayList<>();
-        addressEntity address = new addressEntity();
-        address.setAddress("xxx-xxx-xxx");
-        address.setReceiver("吴xx");
-        address.setTelPhone("131xxxxxxxx");
-
-        addressEntity address1 = new addressEntity();
-        address1.setAddress("xxx-xxx-xxx");
-        address1.setReceiver("吴xx1");
-        address1.setTelPhone("131xxxxxxx1");
-
-
-        addressList.add(address);
-        addressList.add(address1);
-
+        List<addressEntity> addressList = addressInfoService.getAddressInfoListByUserId(userId);
         model.addAttribute("addressList", addressList);
         return "address";
     }

@@ -23,7 +23,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a onClick="javascript :history.back(-1);">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>

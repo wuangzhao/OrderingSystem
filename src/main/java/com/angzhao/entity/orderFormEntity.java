@@ -6,8 +6,6 @@ public class orderFormEntity {
 
     private String userId;
 
-    private int price;
-
     private int status;
 
     public int getStatus() {
@@ -32,13 +30,5 @@ public class orderFormEntity {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 }

@@ -1,6 +1,7 @@
 package com.angzhao.web;
 
 import com.angzhao.entity.foodEntity;
+import com.angzhao.entity.homeImgEntity;
 import com.angzhao.service.foodService;
 import com.angzhao.service.homeImgService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class homeController {
 
     @RequestMapping("")
     public String showPic(Model model) {
-        List<String> picList = homeImgService.getAllImgName();
+        List<homeImgEntity> picList = homeImgService.getAllImgName();
 
         foodEntity food1 = foodService.getByFoodId("fd_1000a001");
         foodEntity food2 = foodService.getByFoodId("fd_1000a002");

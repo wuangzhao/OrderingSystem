@@ -27,7 +27,7 @@
 <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}' >
     <ul class="am-slides">
         <c:forEach items="${name}" var="picList">
-            <li><img src="images/home/${picList}"> </li>
+            <li><img src="images/home/${picList.homeImgPath}"> </li>
         </c:forEach>
     </ul>
 </div>

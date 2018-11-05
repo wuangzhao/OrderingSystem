@@ -39,29 +39,17 @@
     </div>
 </div>
 <div class="comment">
-    <h2>宝贝评价（0）</h2>
-    <ul>
-        <li><a hhref="">有图（0）</a></li>
-        <li><a hhref="">好评（0）</a></li>
-        <li><a hhref="">中评（0）</a></li>
-        <li><a hhref="">差评（0）</a></li>
-    </ul>
+    <h2>详情</h2>
+
 </div>
 <div class="detail-con">
     ${food.foodDetails}
 </div>
-<div class="h100"></div>
+<div class="h50"></div>
 <ul class="fixed-btn">
     <li ><a href="" class="current">立即购买</a></li>
     <li><a href="javascript:;">加入购物车</a></li>
 </ul>
-<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
-    <ul class="am-navbar-nav am-cf am-avg-sm-4">
-        <li > <a href="/home" class=""> <span class=""><img src="images/nav.png"/></span> <span class="am-navbar-label">点餐</span> </a> </li>
-        <li> <a href="we.html" class=""> <span class=""><img src="images/nav3.png"/></span> <span class="am-navbar-label">我们</span> </a> </li>
-        <li > <a href="/member" class=""> <span class=""><img src="images/nav4.png"/></span> <span class="am-navbar-label">我的</span> </a> </li>
-    </ul>
-</div>
 </body>
 </html>
 
