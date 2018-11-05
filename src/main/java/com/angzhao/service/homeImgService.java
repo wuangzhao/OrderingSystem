@@ -14,5 +14,5 @@ public interface homeImgService {
 
     int queryHomeImg(int homeImgId);
 
-    List<homeImgEntity> getAllImgName(int homeImgId);
+    List<homeImgEntity> getAllImgName();
 }

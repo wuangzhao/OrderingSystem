@@ -21,8 +21,7 @@
         WHERE home_img_id = #{homeImgId}
     </select>
 
-    <select id="queryAllImgName" parameterType="int" resultType="com.angzhao.entity.homeImgEntity">
+    <select id="queryAllImgName" resultType="com.angzhao.entity.homeImgEntity">
         SELECT * FROM home_img
-        WHERE home_img_id = #{homeImgId}
     </select>
 </mapper>

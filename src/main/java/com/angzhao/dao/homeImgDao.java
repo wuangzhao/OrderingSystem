@@ -14,6 +14,6 @@ public interface homeImgDao {
 
     homeImgEntity queryHomeImg(int homeImgId);
 
-    List<homeImgEntity> queryAllImgName(int homeImgId);
+    List<homeImgEntity> queryAllImgName();
 
 }

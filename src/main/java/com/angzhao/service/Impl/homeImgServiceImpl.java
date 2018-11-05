@@ -63,7 +63,7 @@ public class homeImgServiceImpl implements homeImgService {
     }
 
     @Override
-    public List<homeImgEntity> getAllImgName(int homeImgId) {
-        return homeImgDao.queryAllImgName(homeImgId);
+    public List<homeImgEntity> getAllImgName() {
+        return homeImgDao.queryAllImgName();
     }
 }
