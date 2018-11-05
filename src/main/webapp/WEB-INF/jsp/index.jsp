@@ -61,39 +61,13 @@
             </div>
         </li>
     </c:forEach>
-    <%--<li>--%>
-        <%--<div class="am-gallery-item">--%>
-            <%--<a href="detail.html" class=""> <img src="images/p.png"  alt=""/>--%>
-                <%--<h3 class="am-gallery-title">商务单人餐</h3>--%>
-                <%--<div class="am-gallery-desc"> <em>￥50</em><i class="am-icon-cart-plus"></i> </div>--%>
-            <%--</a>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-    <%--<li>--%>
-        <%--<div class="am-gallery-item"> <a href="detail.html" class=""> <img src="images/p1.png"  alt=""/>--%>
-            <%--<h3 class="am-gallery-title">虐狗情人杯</h3>--%>
-            <%--<div class="am-gallery-desc"> <em>￥50</em><i class="am-icon-cart-plus"></i> </div>--%>
-        <%--</a> </div>--%>
-    <%--</li>--%>
-    <%--<li>--%>
-        <%--<div class="am-gallery-item"> <a href="detail.html" class=""> <img src="images/p2.png"  alt=""/>--%>
-            <%--<h3 class="am-gallery-title">卤香滑鸡 </h3>--%>
-            <%--<div class="am-gallery-desc"> <em>￥50</em><i class="am-icon-cart-plus"></i> </div>--%>
-        <%--</a> </div>--%>
-    <%--</li>--%>
-    <%--<li>--%>
-        <%--<div class="am-gallery-item"> <a href="detail.html" class=""> <img src="images/p3.png"  alt=""/>--%>
-            <%--<h3 class="am-gallery-title">酷炫绵绵球</h3>--%>
-            <%--<div class="am-gallery-desc"> <em>￥50</em><i class="am-icon-cart-plus"></i> </div>--%>
-        <%--</a> </div>--%>
-    <%--</li>--%>
 </ul>
 <div class="h50"></div>
 <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
     <ul class="am-navbar-nav am-cf am-avg-sm-4">
-        <li > <a href="index.html" class=""> <span class=""><img src="images/nav.png"/></span> <span class="am-navbar-label">点餐</span> </a> </li>
+        <li > <a href="/home" class=""> <span class=""><img src="images/nav.png"/></span> <span class="am-navbar-label">点餐</span> </a> </li>
         <li> <a href="we.html" class=""> <span class=""><img src="images/nav3.png"/></span> <span class="am-navbar-label">我们</span> </a> </li>
-        <li > <a href="member.html" class=""> <span class=""><img src="images/nav4.png"/></span> <span class="am-navbar-label">我的</span> </a> </li>
+        <li > <a href="/member" class=""> <span class=""><img src="images/nav4.png"/></span> <span class="am-navbar-label">我的</span> </a> </li>
     </ul>
 </div>
 </body>

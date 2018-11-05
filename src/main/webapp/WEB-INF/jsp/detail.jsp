@@ -55,7 +55,6 @@
     <li ><a href="" class="current">立即购买</a></li>
     <li><a href="javascript:;">加入购物车</a></li>
 </ul>
-
 </body>
 </html>
 
