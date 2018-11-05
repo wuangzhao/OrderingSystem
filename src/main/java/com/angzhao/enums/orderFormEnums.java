@@ -2,7 +2,8 @@ package com.angzhao.enums;
 
 public enum orderFormEnums {
 
-    SUCCESS(1, "购"), HAS_SOLD(0, "已出售"), INNER_ERROR(-1, "系统异常"), ILLEGAL(-2, "非法操作");
+    SUCCESS(1, "订单完成"), WAIT_PAID(0, "待付款"), WAIT_ASSESS(-1, "等待评价"),
+    INNER_ERROR(-1, "系统异常"), ILLEGAL(-2, "非法操作");
 
     private int state;
 
