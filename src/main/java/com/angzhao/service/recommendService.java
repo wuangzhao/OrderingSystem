@@ -2,6 +2,8 @@ package com.angzhao.service;
 
 import com.angzhao.entity.foodEntity;
 
+import java.util.List;
+
 public interface recommendService {
 
 
@@ -15,4 +17,6 @@ public interface recommendService {
     int deleteRecommendFood(foodEntity food);
 
     foodEntity queryRecommendFood(foodEntity food);
+
+    List<foodEntity> getRecommendList();
 }

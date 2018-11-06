@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.angzhao.dao.orderFormDao">
+
+    <select id="queryOrderFormListByUserId" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
+        SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
+        WHERE user_info.user_id = #{userId}
+    </select>
+
+    <select id="queryOrderFormDetailByOrderFrom" resultType="com.angzhao.entity.orderFormDetailEntity" parameterType="com.angzhao.entity.orderFormEntity">
+        SELECT * FROM order_form_food_detail_info INNER JOIN order_form_info ON order_form_food_detail_info.order_form_id = order_form_info.order_form_id INNER JOIN food_info ON order_form_food_detail_info.food_id = food_info.food_id
+        WHERE order_form_info.order_form_id = #{orderFormId}
+    </select>
+
+
+</mapper>

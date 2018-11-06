@@ -4,6 +4,7 @@ import com.angzhao.entity.foodEntity;
 import com.angzhao.entity.homeImgEntity;
 import com.angzhao.service.foodService;
 import com.angzhao.service.homeImgService;
+import com.angzhao.service.recommendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,24 +24,15 @@ public class homeController {
     @Autowired
     homeImgService homeImgService;
 
+    @Autowired
+    recommendService recommendService;
+
     @RequestMapping("")
     public String showPic(Model model) {
         List<homeImgEntity> picList = homeImgService.getAllImgName();
 
-        foodEntity food1 = foodService.getByFoodId("fd_1000a001");
-        foodEntity food2 = foodService.getByFoodId("fd_1000a002");
-        foodEntity food3 = foodService.getByFoodId("fd_1000a003");
-        foodEntity food4 = foodService.getByFoodId("fd_1000a004");
+        List<foodEntity> foodEntityList = recommendService.getRecommendList();
 
-        List<foodEntity> foodEntityList = new ArrayList<>();
-
-        foodEntityList.add(food1);
-
-        foodEntityList.add(food2);
-
-        foodEntityList.add(food3);
-
-        foodEntityList.add(food4);
 
         model.addAttribute("foods", foodEntityList);
         model.addAttribute("name", picList);

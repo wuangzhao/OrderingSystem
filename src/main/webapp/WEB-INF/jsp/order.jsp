@@ -49,18 +49,32 @@
         <span class="c-comment-num">订单编号：${order.orderFormId}</span>
         <span class="c-comment-suc">待付款</span>
     </div>
-    <div class="c-comment-list" style="border: 0;">
-        <a class="o-con" href="">
-            <div class="o-con-img"><img src="images/detail.png"></div>
-            <div class="o-con-txt">
-                <p>卤香滑鸡</p>
-                <p class="price">￥88</p>
-                <p>合计：<span>￥176.00</span></p>
-            </div>
-            <div class="o-con-much"><h4>x2</h4></div>
 
-        </a>
-        <div class="c-com-money">花5个商品 实付金额：<span>￥ 175.00</span></div>
+    <div class="c-comment-list" style="border: 0;">
+        <c:forEach items="${order.orderFormDetailList}" var="detail">
+            <%--<a class="o-con" href=>--%>
+                <%--<div class="o-con-img">--%>
+                    <%--<img src="images/foodImg/${detail.foodImg}">--%>
+                <%--</div>--%>
+                <%--<div class="o-con-txt">--%>
+                    <%--<p>${detail.foodName}</p>--%>
+                    <%--<p class="price">￥${detail.foodPrice}</p>--%>
+                <%--</div>--%>
+                <%--<div class="o-con-much"><h4>x${detail.amount}</h4></div>--%>
+            <%--</a>--%>
+
+            <a class="o-con" href="">
+                <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                <div class="o-con-txt">
+                    <p>${detail.foodName}</p>
+                    <p class="price">￥${detail.foodPrice}</p>
+                    <p>合计：<span>￥${detail.totalPrice}</span></p>
+                </div>
+                <div class="o-con-much"> <h4>x${detail.amount}</h4></div>
+
+            </a>
+        </c:forEach>
+        <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
     </div>
     <div class="c-com-btn">
         <a href="tureorder.html">立即支付</a>

@@ -7,6 +7,8 @@ import com.angzhao.service.recommendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 /**
  *
@@ -43,6 +45,11 @@ public class recommendServiceImpl implements recommendService{
     @Override
     public foodEntity queryRecommendFood(foodEntity food) {
         return recommendDao.queryRecommendId(food);
+    }
+
+    @Override
+    public List<foodEntity> getRecommendList() {
+        return recommendDao.queryRecommendList();
     }
 
 }

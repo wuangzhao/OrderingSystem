@@ -18,4 +18,9 @@
         SELECT * FROM recommend_info
         WHERE food_id = #{foodId}
     </select>
+
+    <select id="queryRecommendList" resultType="com.angzhao.entity.foodEntity">
+        SELECT * FROM food_info INNER JOIN recommend_info
+        WHERE food_info.food_id = recommend_info.food_id
+    </select>
 </mapper>
