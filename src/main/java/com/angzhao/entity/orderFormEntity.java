@@ -14,6 +14,7 @@ public class orderFormEntity {
 
     private int totalAmount;
 
+    private List<orderFormDetailEntity> orderFormDetailList;
 
     public int getTotalPrice() {
         return totalPrice;
@@ -30,8 +31,6 @@ public class orderFormEntity {
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
     }
-
-    private List<orderFormDetailEntity> orderFormDetailList;
 
 
     public List<orderFormDetailEntity> getOrderFormDetailList() {

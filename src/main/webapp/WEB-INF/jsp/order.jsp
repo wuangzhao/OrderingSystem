@@ -23,7 +23,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a onClick="javascript :history.back(-1);">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
@@ -32,16 +32,10 @@
         <a href="#right-link" class=""> </a>
     </div>
 </header>
-<div class="cate-search" style="position: relative; top: 0; border-bottom: 0;">
-    <input type="text" class="cate-input" placeholder="搜索全部订单">
-    <input type="button" class="cate-btn">
-</div>
 <ul class="order-style">
     <li class="current"><a href="allorder.html">全部</a></li>
     <li><a href="">待付款</a></li>
-    <li><a href="">待收货</a></li>
     <li><a href="">待评价</a></li>
-    <li><a href="">退换货</a></li>
 </ul>
 
 <c:forEach items="${orderFormList}" var="order">
@@ -52,18 +46,7 @@
 
     <div class="c-comment-list" style="border: 0;">
         <c:forEach items="${order.orderFormDetailList}" var="detail">
-            <%--<a class="o-con" href=>--%>
-                <%--<div class="o-con-img">--%>
-                    <%--<img src="images/foodImg/${detail.foodImg}">--%>
-                <%--</div>--%>
-                <%--<div class="o-con-txt">--%>
-                    <%--<p>${detail.foodName}</p>--%>
-                    <%--<p class="price">￥${detail.foodPrice}</p>--%>
-                <%--</div>--%>
-                <%--<div class="o-con-much"><h4>x${detail.amount}</h4></div>--%>
-            <%--</a>--%>
-
-            <a class="o-con" href="">
+            <a class="o-con" href="/detail?foodId=${detail.foodId}">
                 <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
                 <div class="o-con-txt">
                     <p>${detail.foodName}</p>
@@ -78,7 +61,12 @@
     </div>
     <div class="c-com-btn">
         <a href="tureorder.html">立即支付</a>
-        <a href="">取消订单</a>
+        <form action="/order/cancel" method="post"target="nm_iframe">
+            <input type="hidden" name="orderFormId" value="${order.orderFormId}">
+            <input type="submit" value="取消订单"/>
+        </form>
+        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+
     </div>
     <div class="clear"></div>
 

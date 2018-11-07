@@ -31,11 +31,7 @@
 <div class="detail">
     <h2>${food.foodName}</h2>
     <div class="price">
-        <b>￥${food.foodPrice}</b><span>（积分可抵扣5元）</span>
-    </div>
-    <div class="kucun">
-        <p>库存：${food.foodReserve}</p>
-        <p>运费：免运费</p>
+        <b>￥${food.foodPrice}</b>
     </div>
 </div>
 <div class="comment">

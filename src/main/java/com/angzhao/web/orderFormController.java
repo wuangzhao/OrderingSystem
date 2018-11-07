@@ -4,9 +4,9 @@ import com.angzhao.entity.orderFormEntity;
 import com.angzhao.service.orderFormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -22,5 +22,16 @@ public class orderFormController {
         List<orderFormEntity> orderFormList = orderFormService.getOrderFormByUserId(userId);
         model.addAttribute("orderFormList", orderFormList);
         return "order";
+    }
+
+    @RequestMapping(value = "cancel", method = RequestMethod.POST)
+    public String cancelOrderForm(String orderFormId) {
+        orderFormEntity orderForm = orderFormService.getOrderForm(orderFormId);
+        if (orderFormService.cancelOrderFormByOrderId(orderForm) != null) {
+            return "success";
+        } else {
+            return "fail";
+        }
+
     }
 }

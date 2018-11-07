@@ -35,4 +35,21 @@ public class orderFormServiceImpl implements orderFormService {
         }
         return orderFormList;
     }
+
+    @Override
+    public orderFormEntity cancelOrderFormByOrderId(orderFormEntity orderForm) {
+        orderForm.setStatus(-1);
+        int i = orderFormDao.updateOrderFormStatus(orderForm);
+        if (i == 0) {
+            return null;
+        } else {
+            return orderForm;
+        }
+    }
+
+    @Override
+    public orderFormEntity getOrderForm(String id) {
+        return orderFormDao.queryOrderFormById(id);
+    }
+
 }

@@ -37,6 +37,13 @@ public class orderFromDaoTest {
 
         }
         assertEquals(list.size(), 2);
+    }
 
+    @Test
+    public void updateOrderFormStatus() {
+        orderFormEntity orderFormEntity = new orderFormEntity();
+        orderFormEntity.setOrderFormId("10001");
+        orderFormEntity.setStatus(2);
+        assertEquals(orderFromDao.updateOrderFormStatus(orderFormEntity), 1);
     }
 }
