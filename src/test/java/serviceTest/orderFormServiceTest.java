@@ -23,6 +23,7 @@ public class orderFormServiceTest {
     public void queryOrderFormListByUserIdTest() {
         List<orderFormEntity> list = orderFormService.getOrderFormByUserId("1234");
         for (orderFormEntity orderFormEntity : list) {
+            System.out.println(orderFormEntity.getStatus());
             System.out.println(orderFormEntity.toString());
             for (orderFormDetailEntity orderFormDetailEntity : orderFormEntity.getOrderFormDetailList()) {
                 System.out.println(orderFormDetailEntity.toString());
@@ -30,6 +31,7 @@ public class orderFormServiceTest {
         }
 
     }
+
 
     @Test
     public void queryOrderFormListByUserId1Test() {

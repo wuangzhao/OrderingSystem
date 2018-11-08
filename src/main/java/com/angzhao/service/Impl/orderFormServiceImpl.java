@@ -4,6 +4,7 @@ import com.angzhao.dao.orderFormDao;
 import com.angzhao.entity.orderFormDetailEntity;
 import com.angzhao.entity.orderFormEntity;
 import com.angzhao.service.orderFormService;
+import com.angzhao.util.orderFormUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,28 @@ public class orderFormServiceImpl implements orderFormService {
     @Override
     public List<orderFormEntity> getOrderFormByUserId(String userId) {
         List<orderFormEntity> orderFormList = orderFormDao.queryOrderFormListByUserId(userId);
+        getOrderFormDetail(orderFormList);
+        return orderFormList;
+    }
+
+    @Override
+    public List<orderFormEntity> getWaitPayOrderFormByUserId(String userId) {
+        List<orderFormEntity> orderFormList = orderFormDao.queryWaitPayOrderFormListByUserId(userId);
+        getOrderFormDetail(orderFormList);
+        return orderFormList;
+    }
+
+    @Override
+    public List<orderFormEntity> getWaitCommentOrderFormByUserId(String userId) {
+        List<orderFormEntity> orderFormList = orderFormDao.queryWaitCommentOrderFormListByUserId(userId);
+        getOrderFormDetail(orderFormList);
+        return orderFormList;
+    }
+
+    private void getOrderFormDetail(List<orderFormEntity> orderFormList) {
         for (orderFormEntity orderForm : orderFormList) {
             List<orderFormDetailEntity> orderFormDetailList = orderFormDao.queryOrderFormDetailByOrderFrom(orderForm);
-
+            orderForm.setStatus(orderFormUtil.translate(orderForm.getStatus()));
             int totalPrice = 0;
             int totalAmount = 0;
             for (orderFormDetailEntity orderFormDetail : orderFormDetailList) {
@@ -33,12 +53,12 @@ public class orderFormServiceImpl implements orderFormService {
             orderForm.setTotalAmount(totalAmount);
             orderForm.setTotalPrice(totalPrice);
         }
-        return orderFormList;
     }
+
 
     @Override
     public orderFormEntity cancelOrderFormByOrderId(orderFormEntity orderForm) {
-        orderForm.setStatus(-1);
+        orderForm.setStatus("-1");
         int i = orderFormDao.updateOrderFormStatus(orderForm);
         if (i == 0) {
             return null;

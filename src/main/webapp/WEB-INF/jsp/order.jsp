@@ -19,8 +19,9 @@
     <link rel="stylesheet" href="css/style.css"/>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/amazeui.min.js"></script>
+    <script type="text/javascript" src="js/my.js"></script>
 </head>
-<body>
+<body onload="a1()">
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
         <a onClick="javascript :history.back(-1);">
@@ -33,43 +34,106 @@
     </div>
 </header>
 <ul class="order-style">
-    <li class="current"><a href="allorder.html">全部</a></li>
-    <li><a href="">待付款</a></li>
-    <li><a href="">待评价</a></li>
+    <li id="li1"  style="border-bottom: 2px solid #ff5500;
+    background: transparent;" onclick="a2(this)"><a>全部</a></li>
+    <li id="li2" onclick="a2(this)"><a>待付款</a></li>
+    <li id="li3" onclick="a2(this)"><a>待评价</a></li>
 </ul>
+<iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+<div id="all1">
+    <c:forEach items="${orderFormList}" var="order">
+        <div class="c-comment">
+            <span class="c-comment-num">订单编号：${order.orderFormId}</span>
+            <span class="c-comment-suc">${order.status}</span>
+        </div>
+        <div class="c-comment-list" style="border: 0;">
+            <c:forEach items="${order.orderFormDetailList}" var="detail">
+                <a class="o-con" href="/detail?foodId=${detail.foodId}">
+                    <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                    <div class="o-con-txt">
+                        <p>${detail.foodName}</p>
+                        <p class="price">￥${detail.foodPrice}</p>
+                        <p>合计：<span>￥${detail.totalPrice}</span></p>
+                    </div>
+                    <div class="o-con-much"><h4>x${detail.amount}</h4></div>
 
-<c:forEach items="${orderFormList}" var="order">
-    <div class="c-comment">
-        <span class="c-comment-num">订单编号：${order.orderFormId}</span>
-        <span class="c-comment-suc">待付款</span>
-    </div>
+                </a>
+            </c:forEach>
+            <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
+        </div>
+        <div class="c-com-btn" name="service">
+            <a href="tureorder.html">立即支付</a>
+            <form action="/order/cancel" method="post" target="nm_iframe">
+                <input type="hidden" name="orderFormId" value="${order.orderFormId}">
+                <input type="submit" name="cancelOrderForm" value="取消订单"/>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </c:forEach>
+</div>
+<div id="all2" style="display: none;">
+    <c:forEach items="${waitPayOrderFormList}" var="order">
+        <div class="c-comment">
+            <span class="c-comment-num">订单编号：${order.orderFormId}</span>
+            <span class="c-comment-suc">${order.status}</span>
+        </div>
 
-    <div class="c-comment-list" style="border: 0;">
-        <c:forEach items="${order.orderFormDetailList}" var="detail">
-            <a class="o-con" href="/detail?foodId=${detail.foodId}">
-                <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
-                <div class="o-con-txt">
-                    <p>${detail.foodName}</p>
-                    <p class="price">￥${detail.foodPrice}</p>
-                    <p>合计：<span>￥${detail.totalPrice}</span></p>
-                </div>
-                <div class="o-con-much"> <h4>x${detail.amount}</h4></div>
+        <div class="c-comment-list" style="border: 0;">
+            <c:forEach items="${order.orderFormDetailList}" var="detail">
+                <a class="o-con" href="/detail?foodId=${detail.foodId}">
+                    <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                    <div class="o-con-txt">
+                        <p>${detail.foodName}</p>
+                        <p class="price">￥${detail.foodPrice}</p>
+                        <p>合计：<span>￥${detail.totalPrice}</span></p>
+                    </div>
+                    <div class="o-con-much"><h4>x${detail.amount}</h4></div>
 
-            </a>
-        </c:forEach>
-        <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
-    </div>
-    <div class="c-com-btn">
-        <a href="tureorder.html">立即支付</a>
-        <form action="/order/cancel" method="post"target="nm_iframe">
-            <input type="hidden" name="orderFormId" value="${order.orderFormId}">
-            <input type="submit" value="取消订单"/>
-        </form>
-        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                </a>
+            </c:forEach>
+            <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
+        </div>
+        <div class="c-com-btn">
+            <a href="tureorder.html">立即支付</a>
+            <form action="/order/cancel" method="post" target="nm_iframe">
+                <input type="hidden" name="orderFormId" value="${order.orderFormId}">
+                <input type="submit" value="取消订单"/>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </c:forEach>
+</div>
+<div id="all3" style="display: none;">
+    <c:forEach items="${waitCommentOrderFormList}" var="order">
+        <div class="c-comment">
+            <span class="c-comment-num">订单编号：${order.orderFormId}</span>
+            <span class="c-comment-suc">${order.status}</span>
+        </div>
 
-    </div>
-    <div class="clear"></div>
+        <div class="c-comment-list" style="border: 0;">
+            <c:forEach items="${order.orderFormDetailList}" var="detail">
+                <a class="o-con" href="/detail?foodId=${detail.foodId}">
+                    <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                    <div class="o-con-txt">
+                        <p>${detail.foodName}</p>
+                        <p class="price">￥${detail.foodPrice}</p>
+                        <p>合计：<span>￥${detail.totalPrice}</span></p>
+                    </div>
+                    <div class="o-con-much"><h4>x${detail.amount}</h4></div>
 
-</c:forEach>
+                </a>
+            </c:forEach>
+            <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
+        </div>
+        <div class="c-com-btn">
+            <a href="tureorder.html">立即支付</a>
+            <form action="/order/cancel" method="post" target="nm_iframe">
+                <input type="hidden" name="orderFormId" value="${order.orderFormId}">
+                <input type="submit" value="取消订单"/>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </c:forEach>
+</div>
 </body>
 </html>

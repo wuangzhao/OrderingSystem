@@ -11,7 +11,15 @@ public interface orderFormDao {
 
     orderFormEntity queryOrderFormById(String id);
 
+    orderFormEntity queryWaitPayOrderFormById(String id);
+
     List<orderFormEntity> queryOrderFormListByUserId(String userId);
 
+    List<orderFormEntity> queryWaitPayOrderFormListByUserId(String userId);
+
+    List<orderFormEntity> queryWaitCommentOrderFormListByUserId(String userId);
+
     List<orderFormDetailEntity> queryOrderFormDetailByOrderFrom(orderFormEntity orderForm);
+
+
 }

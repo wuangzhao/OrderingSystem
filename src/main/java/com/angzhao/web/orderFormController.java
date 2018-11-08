@@ -20,7 +20,11 @@ public class orderFormController {
     @RequestMapping("")
     public String orderPage(String userId, Model model) {
         List<orderFormEntity> orderFormList = orderFormService.getOrderFormByUserId(userId);
+        List<orderFormEntity> waitPayOrderFormList = orderFormService.getWaitPayOrderFormByUserId(userId);
+        List<orderFormEntity> waitCommentOrderFormList = orderFormService.getWaitCommentOrderFormByUserId(userId);
         model.addAttribute("orderFormList", orderFormList);
+        model.addAttribute("waitPayOrderFormList", waitPayOrderFormList);
+        model.addAttribute("waitCommentOrderFormList", waitCommentOrderFormList);
         return "order";
     }
 

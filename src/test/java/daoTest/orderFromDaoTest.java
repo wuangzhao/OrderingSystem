@@ -23,8 +23,10 @@ public class orderFromDaoTest {
 
     @Test
     public void queryOrderFormListByUserIdTest() {
-        int i = orderFromDao.queryOrderFormListByUserId("1234").size();
-        assertEquals(i, 2);
+        List<orderFormEntity> list = orderFromDao.queryOrderFormListByUserId("1234");
+        for (orderFormEntity orderFormEntity : list) {
+            System.out.println(orderFormEntity.getStatus());
+        }
     }
 
     @Test
@@ -43,7 +45,7 @@ public class orderFromDaoTest {
     public void updateOrderFormStatus() {
         orderFormEntity orderFormEntity = new orderFormEntity();
         orderFormEntity.setOrderFormId("10001");
-        orderFormEntity.setStatus(2);
+        orderFormEntity.setStatus("2");
         assertEquals(orderFromDao.updateOrderFormStatus(orderFormEntity), 1);
     }
 }
