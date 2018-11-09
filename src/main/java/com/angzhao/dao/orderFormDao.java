@@ -9,6 +9,12 @@ public interface orderFormDao {
 
     int updateOrderFormStatus(orderFormEntity orderForm);
 
+    int insertByOrderForm(orderFormEntity orderFormEntity);
+
+    int deleteByOrderForm(String orderFormId);
+
+    int updateByOrderForm(orderFormEntity orderFormEntity);
+
     orderFormEntity queryOrderFormById(String id);
 
     orderFormEntity queryWaitPayOrderFormById(String id);

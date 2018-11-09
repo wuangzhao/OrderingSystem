@@ -6,6 +6,17 @@ import java.util.List;
 
 public interface foodService {
 
+    /**
+     *
+     * @param foodId
+     * @param foodName
+     * @param foodImg
+     * @param foodPrice
+     * @param foodReserve
+     * @param foodDetails
+     * @return
+     */
+
     foodEntity insertFoodByFooId(String foodId,String foodName,String foodImg,int foodPrice,int foodReserve,String foodDetails);
 
     int deleteFoodByFoodId(String foodId);

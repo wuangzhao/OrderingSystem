@@ -33,66 +33,61 @@ public class foodDaoTest {
     @Test
     public void deleteTest(){
         int results = foodService.deleteFoodByFoodId("100010");
-        if(results == 1) {
-            System.out.println("删除成功！");
-        }
-        else {
-            System.out.println("删除错误！");
-        }
+        assertEquals(results, 1);
     }
 
     @Test
-    public void updateFoodNameTest() {
+    public foodEntity updateFoodNameTest() {
         foodEntity food = foodService.updateFoodNameByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e","测试名称");
         if(food != null) {
-            System.out.println("修改成功");
+            return food;
         }
         else {
-            System.out.println("ID不存在！");
+            return null;
         }
     }
 
     @Test
-    public void updateFoodImgTest() {
+    public foodEntity updateFoodImgTest() {
         foodEntity food = foodService.updateFoodImgByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e","null.png");
         if(food != null) {
-            System.out.println("修改成功");
+            return food;
         }
         else {
-            System.out.println("ID不存在！");
+            return null;
         }
     }
 
     @Test
-    public void updateFoodPriceTest() {
+    public foodEntity updateFoodPriceTest() {
         foodEntity food = foodService.updateFoodPriceByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e",99999);
         if(food != null) {
-            System.out.println("修改成功");
+            return food;
         }
         else {
-            System.out.println("ID不存在！");
+            return null;
         }
     }
 
     @Test
-    public void updateFoodReserveTest() {
+    public foodEntity updateFoodReserveTest() {
         foodEntity food = foodService.updateFoodReserveByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e",88888);
         if(food != null) {
-            System.out.println("修改成功");
+            return food;
         }
         else {
-            System.out.println("ID不存在！");
+            return null;
         }
     }
 
     @Test
-    public void updateFoodDetailsTest() {
+    public foodEntity updateFoodDetailsTest() {
         foodEntity food = foodService.updateFoodDetailsByFoodId("4db39022-11d7-4ab7-8145-5f5e9ed0e87e","测试详情");
         if(food != null) {
-            System.out.println("修改成功");
+            return food;
         }
         else {
-            System.out.println("ID不存在！");
+            return null;
         }
     }
 

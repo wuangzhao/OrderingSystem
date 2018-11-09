@@ -12,9 +12,9 @@ public interface recommendService {
      * @param food
      * @return
      */
-    int insertRecommendFood(foodEntity food);
+    foodEntity insertRecommendFood(foodEntity food);
 
-    int deleteRecommendFood(foodEntity food);
+    foodEntity deleteRecommendFood(foodEntity food);
 
     foodEntity queryRecommendFood(foodEntity food);
 

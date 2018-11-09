@@ -24,12 +24,40 @@ public class recommendDaoTest {
     @Autowired
     recommendDao recommendDao;
 
+    @Autowired
+    recommendService recommendService;
+
+    @Autowired
+    foodDao foodDao;
 
     @Test
-    public void insert() {
-        foodEntity foodEntity = new foodEntity();
-        foodEntity.setFoodId("123456");
-        int i = recommendDao.insertRecommendId(foodEntity);
-        assertEquals(i, 1);
+    public void insertRecommendTest() {
+        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
+        foodEntity food1 = recommendService.insertRecommendFood(food);
+        assertEquals(food1,food);
+    }
+
+    @Test
+    public void deleteRecommendTest() {
+        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
+        foodEntity food1 = recommendService.deleteRecommendFood(food);
+        assertEquals(food1,food);
+    }
+
+    @Test
+    public void queryRecommendTest() {
+        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
+        foodEntity foodEntity = recommendService.queryRecommendFood(food);
+        if (foodEntity != null) {
+            System.out.print(foodEntity.getFoodId()+" ");
+            System.out.print(foodEntity.getFoodName()+" ");
+            System.out.print(foodEntity.getFoodImg()+" ");
+            System.out.print(foodEntity.getFoodPrice()+" ");
+            System.out.print(foodEntity.getFoodReserve()+" ");
+            System.out.println(foodEntity.getFoodDetails());
+            }
+        else {
+            System.out.println("ID不存在！");
+        }
     }
 }

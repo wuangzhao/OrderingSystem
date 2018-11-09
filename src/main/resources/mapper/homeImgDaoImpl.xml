@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.angzhao.dao.homeImgDao">
-    <insert id="insertHomeImg" parameterType="com.angzhao.entity.homeImgEntity">
+    <insert id="insertHomeImg" parameterType="string">
         INSERT INTO home_img(home_img_path)
-        VALUES #{homeImgPath}
+        VALUES (#{homeImgPath})
     </insert>
 
-    <delete id="deleteHomeImg" parameterType="int">
+    <delete id="deleteHomeImg" parameterType="string">
         DELETE FROM home_img
-        WHERE home_img_id = #{homeImgId}
+        WHERE home_img_path = #{homeImgPath}
     </delete>
 
-    <update id="updateHomeImg" parameterType="com.angzhao.entity.homeImgEntity">
-        UPDATE home_img SET home_img_id = #{homeImgId},home_img_path = #{homeImgPath}
-        WHERE homeimg_id = #{homeImgId}
-    </update>
-
-    <select id="queryHomeImg" parameterType="int" resultType="com.angzhao.entity.homeImgEntity">
+    <select id="queryHomeImg" parameterType="string" resultType="com.angzhao.entity.homeImgEntity">
         SELECT * FROM home_img
-        WHERE home_img_id = #{homeImgId}
+        WHERE home_img_path = #{homeImgPath}
     </select>
 
     <select id="queryAllImgName" resultType="com.angzhao.entity.homeImgEntity">

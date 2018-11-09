@@ -6,6 +6,12 @@ import java.util.List;
 
 public interface foodDao {
 
+    /**
+     *
+     * @param food
+     * @return
+     */
+
     int insertByFoods(foodEntity food);
 
     int deleteByFoods(String foodId);

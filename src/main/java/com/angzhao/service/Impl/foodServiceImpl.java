@@ -18,7 +18,6 @@ public class foodServiceImpl implements foodService {
     public foodEntity insertFoodByFooId(String foodId,String foodName,String foodImg,int foodPrice,int foodReserve,String foodDetails) {
         foodEntity food = new foodEntity();
         foodEntity food1 = foodDao.queryByFoodId(foodId);
-        System.out.println("插入格式：唯一id、名称、图片、价格、库存、详情");
         if (food1 == null) {
             food.setFoodId(foodId);
             food.setFoodName(foodName);
