@@ -29,7 +29,7 @@ public class homeImgDaoTest {
 
     @Test
     public void insertHomeImgTest() {
-        String  a = "27.png";
+        String  a = "29.png";
         homeImgEntity homeImgEntity =  homeImgService.insertHomeImg(a);
         homeImgEntity homeImgEntity1 = homeImgDao.queryHomeImg(a);
         assertEquals(homeImgEntity.getHomeImgPath().trim(),homeImgEntity1.getHomeImgPath().trim());
@@ -37,7 +37,7 @@ public class homeImgDaoTest {
 
     @Test
     public void deleteHomeImgTest() {
-       int i = homeImgService.deleteHomeImg("00.png");
+       int i = homeImgService.deleteHomeImg("29.png");
         assertEquals(i,1);
     }
 

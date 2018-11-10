@@ -32,14 +32,14 @@ public class recommendDaoTest {
 
     @Test
     public void insertRecommendTest() {
-        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
+        foodEntity food = foodDao.queryByFoodId("fd_1000a002");
         foodEntity food1 = recommendService.insertRecommendFood(food);
         assertEquals(food1,food);
     }
 
     @Test
     public void deleteRecommendTest() {
-        foodEntity food = foodDao.queryByFoodId("fd_1000a001");
+        foodEntity food = foodDao.queryByFoodId("fd_1000a002");
         foodEntity food1 = recommendService.deleteRecommendFood(food);
         assertEquals(food1,food);
     }
