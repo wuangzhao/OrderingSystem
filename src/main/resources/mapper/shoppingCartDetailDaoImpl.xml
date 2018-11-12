@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.angzhao.dao.shoppingCartDetailDao">
+    <insert id="insert" parameterType="com.angzhao.entity.shoppingCartDetail">
+        INSERT INTO shopping_cart(user_id, food_id, food_amount)
+        VALUES (#{userId}, #{foodId}, #{foodAmount})
+    </insert>
+
+    <delete id="delete" parameterType="com.angzhao.entity.shoppingCartDetail">
+        DELETE FROM shopping_cart
+        WHERE food_id = #{foodId}
+    </delete>
+    <select id="queryByFoodId" resultType="com.angzhao.entity.shoppingCartDetail" parameterType="string">
+        SELECT * FROM shopping_cart
+        WHERE food_id = #{foodId}
+    </select>
+    <select id="queryByUserId" resultType="com.angzhao.entity.shoppingCartDetail">
+        SELECT * FROM shopping_cart
+        WHERE user_id = #{userId}
+    </select>
+</mapper>

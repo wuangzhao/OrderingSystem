@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -28,11 +28,22 @@ public class orderFormController {
         return "order";
     }
 
-    @RequestMapping(value = "cancel", method = RequestMethod.POST)
+    @RequestMapping(value = "cancel")
     public String cancelOrderForm(String orderFormId) {
         orderFormEntity orderForm = orderFormService.getOrderForm(orderFormId);
         if (orderFormService.cancelOrderFormByOrderId(orderForm) != null) {
             return "success";
+        } else {
+            return "fail";
+        }
+
+    }
+
+    @RequestMapping(value = "pay")
+    public String payOrderForm(@RequestParam("orderFormId") String orderFormId) {
+        orderFormEntity orderForm = orderFormService.getOrderForm(orderFormId);
+        if (orderFormService.payOrderFormByOrderId(orderForm) != null) {
+            return "paysuccess";
         } else {
             return "fail";
         }

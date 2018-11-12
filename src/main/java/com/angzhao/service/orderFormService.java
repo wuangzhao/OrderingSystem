@@ -14,6 +14,8 @@ public interface orderFormService {
 
     orderFormEntity cancelOrderFormByOrderId(orderFormEntity orderForm);
 
+    orderFormEntity payOrderFormByOrderId(orderFormEntity orderForm);
+
     orderFormEntity getOrderForm(String id);
 
 }

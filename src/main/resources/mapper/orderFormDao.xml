@@ -30,7 +30,7 @@
     </select>
     <select id="queryWaitCommentOrderFormListByUserId" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
         SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
-        WHERE user_info.user_id = #{userId} AND status = 0
+        WHERE user_info.user_id = #{userId} AND status = 2
     </select>
 
 </mapper>

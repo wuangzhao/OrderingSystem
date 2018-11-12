@@ -30,7 +30,7 @@
 <ul class="member-nav">
     <li><a href="/address?userId=${userId}"><i class="am-icon-map-marker"></i><span>收货地址</span></a></li>
     <li><a href="/order?userId=${userId}"><i class="am-icon-newspaper-o"></i><span>我的订单</span></a></li>
-    <li><a href=""><i class="am-icon-cart-arrow-down"></i><span>购物车</span></a></li>
+    <li><a href="/shoppingCart?userId=${userId}"><i class="am-icon-cart-arrow-down"></i><span>购物车</span></a></li>
 </ul>
 <ul class="member-nav mt">
     <li><a href=""><i class="am-icon-phone"></i>联系我们</a></li>

@@ -16,14 +16,36 @@ function a2(e) {
     }
 }
 
-function a1() {
-    for (var i = 0; i < document.getElementsByTagName("service").length; i++) {
-        alert(document.getElementsByTagName("service").toString());
-        var node = document.getElementsByTagName("service").item(i).children;
-        for (var j = 0; j < node.length; j++) {
+// function a1() {
+//     for (var i = 0; i < document.getElementsByName("service").length; i++) {
+//         var node = document.getElementsByName("service").item(i).children;
+//         switch (node.item(0).getAttribute("value")) {
+//             case "订单成功" : node.item(2).setAttribute("type","hidden"); break;
+//             case "未支付" : node.item(2)   .setAttribute("type","hidden"); break;
+//             case "待评价" : node.item(2).setAttribute("type","hidden"); break;
+//             case "订单取消" : node.item(2).setAttribute("type","hidden"); break;
+//         }
+//     }
+// }
 
-            node.item(j).setAttribute("type","hidden");
+// case "订单成功": service.namedItem("pay").children.namedItem("payOrderForm").setAttribute("type","hidden");
+// service.namedItem("cancel").children.namedItem("cancelOrderForm").setAttribute("type","hidden");break;
+
+function service() {
+    var serviceList = document.getElementsByName("service");
+    for (var i = 0; i < serviceList.length; i++) {
+        var service = serviceList.item(i).children;
+        switch (service.namedItem("status").getAttribute("value")){
+            case "订单成功": serviceList.item(i).style.display="none"; break;
+            case "未支付" : break;
+            case "订单取消": serviceList.item(i).style.display="none"; break;
         }
+
     }
+
+}
+
+function reload() {
+
 
 }

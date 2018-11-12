@@ -793,7 +793,6 @@ li {
 .o-con {
     width: 100%;
     overflow: hidden;
-    background: #f5f5f5;
     display: block;
     margin-top: 5px;
     padding: 0 12px;
@@ -808,8 +807,17 @@ li {
 }
 
 .clear {
-    height: 10px;
+    height: 3px;
     background: #ddd;
+}
+
+.clear1 {
+    height: 1px;
+    background: #ddd;
+    width: 94%;
+    transform: translate(3%,-50%);
+    left: 50%;
+    right: 50%;
 }
 
 .order-style .current {
@@ -856,10 +864,23 @@ li {
     color: #383838;
 }
 
+
 .order-style {
     overflow: hidden;
     padding: 0 12px;
     line-height: 4rem;
     border-bottom: 1px solid #ddd;
     background: white;
+}
+
+.my-style {
+    text-align:center;
+}
+
+.my-style img {
+    height: 40%;
+}
+
+.my-style h1 {
+    color: #ff9934;
 }

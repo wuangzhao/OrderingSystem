@@ -32,4 +32,5 @@ public class test {
         File picPath = new File("");
         System.out.println(picPath.getAbsolutePath());
     }
+
 }

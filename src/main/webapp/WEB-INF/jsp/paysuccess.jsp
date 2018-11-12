@@ -31,7 +31,7 @@
 </header>
 <div class="my-style">
     <img src="../images/success.png">
-    <h1>取消成功</h1>
+    <h1>支付成功</h1>
 </div>
 
 </body>

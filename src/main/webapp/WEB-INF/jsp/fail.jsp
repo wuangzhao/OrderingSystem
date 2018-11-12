@@ -30,8 +30,8 @@
     <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;">全部订单</a></h1>
 </header>
 <div class="my-style">
-    <img src="../images/success.png">
-    <h1>取消成功</h1>
+    <img src="../images/fail.png">
+    <h1>失败</h1>
 </div>
 
 </body>
