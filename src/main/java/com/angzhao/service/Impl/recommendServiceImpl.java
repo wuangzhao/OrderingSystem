@@ -18,24 +18,24 @@ public class recommendServiceImpl implements recommendService{
     recommendDao recommendDao;
 
     @Override
-    public int insertRecommendFood(foodEntity food) {
+    public foodEntity insertRecommendFood(foodEntity food) {
         int i = recommendDao.insertRecommendId(food);
         if (i == 1) {
-            return 1;
+            return food;
         }
         else {
-            return 0;
+            return null;
         }
     }
 
     @Override
-    public int deleteRecommendFood(foodEntity food) {
+    public foodEntity deleteRecommendFood(foodEntity food) {
         int i = recommendDao.deleteRecommendId(food);
         if (i == 1) {
-            return 1;
+            return food;
         }
         else {
-            return 0;
+            return null;
         }
     }
 

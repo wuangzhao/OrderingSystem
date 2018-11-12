@@ -6,13 +6,17 @@ import java.util.List;
 
 public interface homeImgDao {
 
-    int insertHomeImg(homeImgEntity homeImg);
+    /**
+     *
+     * @param homeImgPath
+     * @return
+     */
 
-    int deleteHomeImg(int homeImgId);
+    int insertHomeImg(String homeImgPath);
 
-    int updateHomeImg(homeImgEntity homeImg);
+    int deleteHomeImg(String homeImgPath);
 
-    homeImgEntity queryHomeImg(int homeImgId);
+    homeImgEntity queryHomeImg(String homeImgPath);
 
     List<homeImgEntity> queryAllImgName();
 

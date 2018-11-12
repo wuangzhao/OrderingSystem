@@ -6,6 +6,12 @@ import java.util.List;
 
 public interface recommendDao {
 
+    /**
+     *
+     * @param foodEntity
+     * @return
+     */
+
     int insertRecommendId(foodEntity foodEntity);
 
     int deleteRecommendId(foodEntity foodEntity);

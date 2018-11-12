@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.angzhao.dao.addressInfoDao">
+    <insert id="insertByAddress" parameterType="addressEntity">
+        INSERT INTO address_info(user_id, address_id, address, tel_phone, receiver)
+        VALUES (#{userId},#{addressId},#{address},#{telPhone},#{receiver})
+    </insert>
+
+    <delete id="deleteByAddress" parameterType="string">
+        DELETE FROM address_info
+        WHERE user_id = #{userId}
+    </delete>
+
+    <update id="updateByAddress" parameterType="com.angzhao.entity.addressEntity">
+        UPDATE address_info SET user_id = #{userId},address_id = #{addressId},address = #{address},tel_phone = #{telPhone},receiver = #{receiver}
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="queryByAddress" resultType="com.angzhao.entity.addressEntity">
+        SELECT * FROM address_info
+        WHERE user_id = #{userId}
+    </select>
+
     <select id="queryByUserId" resultType="com.angzhao.entity.addressEntity" parameterType="string">
         SELECT *
         FROM address_info
         WHERE user_id = #{userId}
     </select>
+
 </mapper>
