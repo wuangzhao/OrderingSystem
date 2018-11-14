@@ -1,18 +1,11 @@
 package com.angzhao.service;
 
+import com.angzhao.entity.orderFormDetailEntity;
 import com.angzhao.entity.orderFormEntity;
 
 import java.util.List;
 
 public interface orderFormService {
-
-    /**
-     *
-     * @param userId
-     * @return
-     */
-
-
 
     List<orderFormEntity> getOrderFormByUserId(String userId);
 
@@ -25,5 +18,7 @@ public interface orderFormService {
     orderFormEntity payOrderFormByOrderId(orderFormEntity orderForm);
 
     orderFormEntity getOrderForm(String id);
+
+    orderFormDetailEntity insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity);
 
 }

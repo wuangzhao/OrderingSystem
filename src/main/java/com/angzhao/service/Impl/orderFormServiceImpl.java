@@ -83,4 +83,13 @@ public class orderFormServiceImpl implements orderFormService {
         return orderFormDao.queryOrderFormById(id);
     }
 
+    @Override
+    public orderFormDetailEntity insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity) {
+        if (orderFormDao.insertOrderFormDetail(orderFormDetailEntity) == 1) {
+            return orderFormDetailEntity;
+        } else {
+            return null;
+        }
+    }
+
 }

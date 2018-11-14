@@ -15,6 +15,8 @@ public interface orderFormDao {
 
     int updateByOrderForm(orderFormEntity orderFormEntity);
 
+    int insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity);
+
     orderFormEntity queryOrderFormById(String id);
 
     orderFormEntity queryWaitPayOrderFormById(String id);

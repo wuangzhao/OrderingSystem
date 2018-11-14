@@ -48,25 +48,9 @@
 <div class="h50"></div>
 <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
     <ul class="am-navbar-nav am-cf am-avg-sm-4">
-        <li >
-            <a href="index.html" class="">
-                <span class=""><img src="images/nav.png"/></span>
-                <span class="am-navbar-label">点餐</span>
-            </a>
-        </li>
-        <li>
-            <a href="we.html" class="">
-                <span class=""><img src="images/nav3.png"/></span>
-                <span class="am-navbar-label">我们</span>
-            </a>
-        </li>
-        <li >
-            <a href="member.html" class="">
-                <span class=""><img src="images/nav4.png"/></span>
-                <span class="am-navbar-label">我的</span>
-            </a>
-        </li>
-
+        <li > <a href="/home" class=""> <span class=""><img src="images/nav.png"/></span> <span class="am-navbar-label">点餐</span> </a> </li>
+        <li> <a href="/we" class=""> <span class=""><img src="images/nav3.png"/></span> <span class="am-navbar-label">我们</span> </a> </li>
+        <li > <a href="/member" class=""> <span class=""><img src="images/nav4.png"/></span> <span class="am-navbar-label">我的</span> </a> </li>
     </ul>
 </div>
 

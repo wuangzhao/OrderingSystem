@@ -1,11 +1,9 @@
 package com.angzhao.service.Impl;
 
 import com.angzhao.dao.foodDao;
+import com.angzhao.dao.orderFormDao;
 import com.angzhao.dao.shoppingCartDetailDao;
-import com.angzhao.entity.foodAndAmount;
-import com.angzhao.entity.foodEntity;
-import com.angzhao.entity.shoppingCart;
-import com.angzhao.entity.shoppingCartDetail;
+import com.angzhao.entity.*;
 import com.angzhao.service.shoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +19,9 @@ public class shoppingCartServiceImpl implements shoppingCartService {
 
     @Autowired
     foodDao foodDao;
+
+    @Autowired
+    orderFormDao orderFormDao;
 
     @Override
     public shoppingCart getShoppingCartListByUserId(String userId) {
@@ -41,5 +42,36 @@ public class shoppingCartServiceImpl implements shoppingCartService {
         shoppingCart.setUserId(userId);
         shoppingCart.setAmount(foodAndAmountList.size());
         return shoppingCart;
+    }
+
+    @Override
+    public boolean addShoppingCartDetail(shoppingCartDetail shoppingCartDetail) {
+        List<shoppingCartDetail> cartDetailList = shoppingCartDetailDao.queryByUserId(shoppingCartDetail.getUserId());
+        for (com.angzhao.entity.shoppingCartDetail detail : cartDetailList) {
+            if (detail.getFoodId().equals(shoppingCartDetail.getFoodId())) {
+                shoppingCartDetail.setFoodAmount(detail.getFoodAmount() + 1);
+                return shoppingCartDetailDao.update(shoppingCartDetail) == 1;
+            }
+        }
+        return shoppingCartDetailDao.insert(shoppingCartDetail) == 1;
+    }
+
+    @Override
+    public boolean payment(String userId) {
+        orderFormEntity orderForm = new orderFormEntity();
+        orderForm.setStatus("1");
+        orderForm.setUserId(userId);
+        int orderFormId = orderFormDao.insertByOrderForm(orderForm);
+        List<orderFormDetailEntity> orderFormDetailList = new ArrayList<>();
+        List<shoppingCartDetail> shoppingCartDetailList = shoppingCartDetailDao.queryByUserId(userId);
+        for (shoppingCartDetail detail : shoppingCartDetailList) {
+            orderFormDetailEntity orderFormDetailEntity = new orderFormDetailEntity();
+            orderFormDetailEntity.setOrderFormId(orderFormId);
+            orderFormDetailEntity.setFoodId(detail.getFoodId());
+            orderFormDetailEntity.setAmount(detail.getFoodAmount());
+            orderFormDao.insertOrderFormDetail(orderFormDetailEntity);
+            orderFormDetailList.add(orderFormDetailEntity);
+        }
+         return false;
     }
 }

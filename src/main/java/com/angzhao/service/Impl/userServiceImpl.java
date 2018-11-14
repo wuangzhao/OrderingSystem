@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class userServicelmpl implements userService {
+public class userServiceImpl implements userService {
 
 
     @Autowired
@@ -26,14 +26,18 @@ public class userServicelmpl implements userService {
         return 0;
     }
 
-    @Override
-    public userEntity uodataUser(userEntity userEntity) {
+    public userEntity updateUser(userEntity userEntity) {
         return null;
     }
 
     @Override
     public userEntity queryUser(String userId) {
-        return null;
+        return userDao.queryByUser(userId);
+    }
+
+    @Override
+    public userEntity getUserByUserName(String userName) {
+        return userDao.queryByUserName(userName);
     }
 
 

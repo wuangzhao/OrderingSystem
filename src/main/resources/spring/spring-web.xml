@@ -16,6 +16,15 @@
     <!--默认servlet-->
     <mvc:default-servlet-handler />
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/member/**"/>
+            <mvc:mapping path="/order/**"/>
+            <mvc:mapping path="/shoppingCart/**"/>
+            <bean class="com.angzhao.interceptor.loginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!--配置jsp-->
     <bean name="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

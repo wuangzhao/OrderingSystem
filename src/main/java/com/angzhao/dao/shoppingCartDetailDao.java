@@ -10,6 +10,8 @@ public interface shoppingCartDetailDao {
 
     int delete(shoppingCartDetail shoppingCartDetail);
 
+    int update(shoppingCartDetail shoppingCartDetail);
+
     shoppingCartDetail queryByFoodId(String foodId);
 
     List<shoppingCartDetail> queryByUserId(String userId);

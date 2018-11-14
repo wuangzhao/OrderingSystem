@@ -19,4 +19,6 @@ public interface userDao {
 
     userEntity queryByUser(String userId);
 
+    userEntity queryByUserName(String userName);
+
 }

@@ -5,11 +5,16 @@
         INSERT INTO shopping_cart(user_id, food_id, food_amount)
         VALUES (#{userId}, #{foodId}, #{foodAmount})
     </insert>
+    <update id="update" parameterType="com.angzhao.entity.shoppingCartDetail">
+        UPDATE shopping_cart SET food_amount = #{foodAmount}
+        WHERE food_id = #{foodId} AND user_id = #{userId}
+    </update>
 
     <delete id="delete" parameterType="com.angzhao.entity.shoppingCartDetail">
         DELETE FROM shopping_cart
-        WHERE food_id = #{foodId}
+        WHERE food_id = #{foodId} AND user_id = #{userId}
     </delete>
+
     <select id="queryByFoodId" resultType="com.angzhao.entity.shoppingCartDetail" parameterType="string">
         SELECT * FROM shopping_cart
         WHERE food_id = #{foodId}

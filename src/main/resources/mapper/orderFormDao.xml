@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.angzhao.dao.orderFormDao">
-<<<<<<< Updated upstream
     <update id="updateOrderFormStatus" parameterType="com.angzhao.entity.orderFormEntity">
         UPDATE order_form_info SET status = #{status}
         WHERE order_form_id = #{orderFormId}
 
     </update>
-=======
-    <insert id="insertByOrderForm" parameterType="com.angzhao.entity.orderFormEntity">
-        INSERT INTO order_form_info(order_form_id, user_id, status)
-        VALUES(#{orderFormId},#{userId},#{status})
+    <insert id="insertByOrderForm" parameterType="com.angzhao.entity.orderFormEntity" useGeneratedKeys="true" keyProperty="order_form_id">
+        INSERT INTO order_form_info(user_id, status)
+        VALUES(#{userId},#{status})
+    </insert>
+
+    <insert id="insertOrderFormDetail" parameterType="com.angzhao.entity.orderFormDetailEntity">
+        INSERT INTO order_form_food_detail_info(order_form_id, food_id, amount)
+        VALUES(#{orderFormId},#{foodId},#{amount})
     </insert>
 
     <delete id="deleteByOrderForm" parameterType="string">
@@ -23,7 +26,6 @@
         WHERE order_form_id = #{orderFormId}
     </update>
 
->>>>>>> Stashed changes
 
     <select id="queryOrderFormListByUserId" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
         SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id

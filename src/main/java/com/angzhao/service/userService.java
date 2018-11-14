@@ -8,8 +8,10 @@ public interface userService {
 
     int deleteUser(String userId);
 
-    userEntity uodataUser(userEntity userEntity);
+    userEntity updateUser(userEntity userEntity);
 
     userEntity queryUser(String userId);
+
+    userEntity getUserByUserName(String userName);
 
 }

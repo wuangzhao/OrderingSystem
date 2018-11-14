@@ -56,7 +56,11 @@
             <div class="am-gallery-item">
                 <a href="/detail?foodId=${food.foodId}" class=""> <img src="images/foodImg/${food.foodImg}"  alt=""/>
                     <h3 class="am-gallery-title">${food.foodName}</h3>
-                    <div class="am-gallery-desc"> <em>${food.foodPrice}</em><i class="am-icon-cart-plus"></i> </div>
+                    <div class="am-gallery-desc"> <em>${food.foodPrice}</em>
+                        <a href="/shoppingCart/add?foodId=${food.foodId}" style="color: #F60;">
+                            <i class="am-icon-cart-plus"></i>
+                        </a>
+                    </div>
                 </a>
             </div>
         </li>

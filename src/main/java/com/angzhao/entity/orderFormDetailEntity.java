@@ -2,6 +2,8 @@ package com.angzhao.entity;
 
 public class orderFormDetailEntity {
 
+    private int orderFormId;
+
     private String foodId;
 
     private String foodName;
@@ -13,6 +15,14 @@ public class orderFormDetailEntity {
     private int foodPrice;
 
     private int amount;
+
+    public int getOrderFormId() {
+        return orderFormId;
+    }
+
+    public void setOrderFormId(int orderFormId) {
+        this.orderFormId = orderFormId;
+    }
 
     public int getTotalPrice() {
         return totalPrice;

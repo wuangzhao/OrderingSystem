@@ -57,6 +57,7 @@
                 </a>
                 <div class="clear1"></div>
             </c:forEach>
+            <br/>
             <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
         </div>
         <div class="c-com-btn" name="service">
@@ -87,6 +88,7 @@
 
                 </a>
             </c:forEach>
+            <br/>
             <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
         </div>
         <div class="c-com-btn" name="service">
@@ -114,9 +116,9 @@
                         <p>合计：<span>￥${detail.totalPrice}</span></p>
                     </div>
                     <div class="o-con-much"><h4>x${detail.amount}</h4></div>
-
                 </a>
             </c:forEach>
+            <br/>
             <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
         </div>
         <div class="clear"></div>
