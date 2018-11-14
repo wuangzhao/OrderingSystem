@@ -44,9 +44,10 @@ public class shoppingCartController {
     }
 
     @RequestMapping("pay")
-    public String pay(String foodId, HttpSession session) {
+    public String pay(HttpSession session) {
         userEntity user = (userEntity) session.getAttribute("user");
-        return null;
+        shoppingCartService.payment(user.getUserId());
+        return "redirect:/order";
     }
 
 }

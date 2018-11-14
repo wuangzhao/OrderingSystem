@@ -22,6 +22,16 @@ public class orderFromDaoTest {
     orderFormDao orderFromDao;
 
     @Test
+    public void insert() {
+        orderFormEntity orderFormEntity = new orderFormEntity();
+        orderFormEntity.setUserId("1234");
+        orderFormEntity.setStatus("1");
+        orderFromDao.insertByOrderForm(orderFormEntity);
+        System.out.println(orderFormEntity.getOrderFormId());
+
+    }
+
+    @Test
     public void queryOrderFormListByUserIdTest() {
         List<orderFormEntity> list = orderFromDao.queryOrderFormListByUserId("1234");
         for (orderFormEntity orderFormEntity : list) {

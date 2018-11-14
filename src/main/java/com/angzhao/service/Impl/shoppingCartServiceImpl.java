@@ -61,7 +61,9 @@ public class shoppingCartServiceImpl implements shoppingCartService {
         orderFormEntity orderForm = new orderFormEntity();
         orderForm.setStatus("1");
         orderForm.setUserId(userId);
-        int orderFormId = orderFormDao.insertByOrderForm(orderForm);
+        orderFormDao.insertByOrderForm(orderForm);
+        String orderFormId = orderForm.getOrderFormId();
+        System.out.println(orderFormId);
         List<orderFormDetailEntity> orderFormDetailList = new ArrayList<>();
         List<shoppingCartDetail> shoppingCartDetailList = shoppingCartDetailDao.queryByUserId(userId);
         for (shoppingCartDetail detail : shoppingCartDetailList) {
@@ -71,6 +73,7 @@ public class shoppingCartServiceImpl implements shoppingCartService {
             orderFormDetailEntity.setAmount(detail.getFoodAmount());
             orderFormDao.insertOrderFormDetail(orderFormDetailEntity);
             orderFormDetailList.add(orderFormDetailEntity);
+            shoppingCartDetailDao.delete(detail);
         }
          return false;
     }

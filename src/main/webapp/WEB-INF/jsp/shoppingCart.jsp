@@ -48,8 +48,7 @@
     </c:forEach>
     <div class="c-com-money">金额：<span>￥ ${shoppingCart.totalPrice}</span></div>
     <div class="c-com-btn" name="service">
-        <form name="pay" action="/order/pay" method="post">
-            <input type="hidden" name="orderFormId" value="{order.orderFormId}">
+        <form name="pay" action="/shoppingCart/pay">
             <input type="submit" name="payOrderForm" value="结算"/>
         </form>
     </div>

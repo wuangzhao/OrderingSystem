@@ -2,7 +2,7 @@ package com.angzhao.entity;
 
 public class orderFormDetailEntity {
 
-    private int orderFormId;
+    private String orderFormId;
 
     private String foodId;
 
@@ -16,11 +16,11 @@ public class orderFormDetailEntity {
 
     private int amount;
 
-    public int getOrderFormId() {
+    public String getOrderFormId() {
         return orderFormId;
     }
 
-    public void setOrderFormId(int orderFormId) {
+    public void setOrderFormId(String orderFormId) {
         this.orderFormId = orderFormId;
     }
 
