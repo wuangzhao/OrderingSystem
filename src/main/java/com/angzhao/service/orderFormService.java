@@ -9,6 +9,12 @@ public interface orderFormService {
 
     List<orderFormEntity> getOrderFormByUserId(String userId);
 
+    List<orderFormEntity> getAdminOrderForm();
+
+    List<orderFormEntity> getSuccessAdminOrderForm();
+
+    List<orderFormEntity> getNotSuccessAdminOrderForm();
+
     List<orderFormEntity> getWaitPayOrderFormByUserId(String userId);
 
     List<orderFormEntity> getWaitCommentOrderFormByUserId(String userId);
@@ -18,6 +24,9 @@ public interface orderFormService {
     orderFormEntity payOrderFormByOrderId(orderFormEntity orderForm);
 
     orderFormEntity getOrderForm(String id);
+
+    String insertAdminOrder(String orderId);
+
 
     orderFormDetailEntity insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity);
 

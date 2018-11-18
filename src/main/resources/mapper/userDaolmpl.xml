@@ -3,8 +3,8 @@
 <mapper namespace="com.angzhao.dao.userDao">
 
     <insert id="insertByUser" parameterType="com.angzhao.entity.userEntity">
-        INSERT INTO user_info(user_id, user_name, user_password)
-        VALUES (#{userId},#{userName},#{userPassword})
+        INSERT INTO user_info(user_name, user_password, user_tel)
+        VALUES (#{userName},#{userPassword}, #{userTel})
     </insert>
 
     <delete id="deleteByUser" parameterType="string">
@@ -13,7 +13,7 @@
     </delete>
 
     <update id="updateByUser">
-        UPDATE user_info SET user_id = #{userId},user_name = #{userName},user_password = #{userPassword}
+        UPDATE user_info SET user_name = #{userName},user_password = #{userPassword}, user_tel = #{userTel}
         WHERE user_id = #{userId}
     </update>
 
@@ -21,8 +21,14 @@
         SELECT * FROM user_info
         WHERE user_id = #{userId}
     </select>
+
     <select id="queryByUserName" resultType="com.angzhao.entity.userEntity">
         SELECT * FROM user_info
         WHERE user_name = #{userName}
+    </select>
+
+    <select id="queryByUserTel" resultType="com.angzhao.entity.userEntity">
+        SELECT * FROM user_info
+        WHERE user_tel = #{userTel}
     </select>
 </mapper>

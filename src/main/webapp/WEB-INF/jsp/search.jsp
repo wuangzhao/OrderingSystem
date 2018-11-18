@@ -27,10 +27,7 @@
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
-    <h1 class="am-header-title"> <a href="#title-link" class="" style="color: #333;">厨房妈妈</a></h1>
-    <div class="am-header-right am-header-nav">
-        <a href="#right-link" class=""> </a>
-    </div>
+    <h1 class="am-header-title"> <a class="" style="color: #333;">厨房妈妈</a></h1>
 </header>
 <div class="search-input">
     <form action="/search">
@@ -42,7 +39,9 @@
         <li>
             <div class="am-gallery-item">
                 <a href="/detail?foodId=${food.foodId}" class="">
-                    <img src="images/foodImg/${food.foodImg}"  alt=""/>
+                    <div class="image-container">
+                        <img src="images/foodImg/${food.foodImg}"  alt=""/>
+                    </div>
                     <h3 class="am-gallery-title">${food.foodName}</h3>
                     <div class="am-gallery-desc">
                         <em>￥${food.foodPrice}</em>

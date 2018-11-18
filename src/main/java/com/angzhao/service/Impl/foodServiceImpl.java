@@ -34,6 +34,12 @@ public class foodServiceImpl implements foodService {
      }
 
     @Override
+    public foodEntity insertFood(foodEntity foodEntity) {
+        foodDao.insertByFoods(foodEntity);
+        return foodEntity;
+    }
+
+    @Override
     public int deleteFoodByFoodId(String foodId) {
         foodEntity food = foodDao.queryByFoodId(foodId);
         if(food != null) {
@@ -145,5 +151,10 @@ public class foodServiceImpl implements foodService {
     @Override
     public List<foodEntity> getFoodListByFoodName(String foodName) {
         return foodDao.queryByFoodName(foodName);
+    }
+
+    @Override
+    public List<foodEntity> getAllFoodList() {
+        return foodDao.queryAllFood();
     }
 }

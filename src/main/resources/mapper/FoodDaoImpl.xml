@@ -3,7 +3,7 @@
 <mapper namespace="com.angzhao.dao.foodDao">
 
     <insert id="insertByFoods" parameterType="com.angzhao.entity.foodEntity">
-        INSERT INTO food_info( food_id,food_name, food_img, food_price, food_reserve, food_details)
+        INSERT INTO food_info(food_id,food_name, food_img, food_price, food_reserve, food_details)
         VALUES (#{foodId},#{foodName}, #{foodImg}, #{foodPrice}, #{foodReserve}, #{foodDetails})
     </insert>
 
@@ -26,6 +26,9 @@
         SELECT * FROM food_info
         WHERE food_name LIKE CONCAT(CONCAT('%',#{foodName}),'%')
 
+    </select>
+    <select id="queryAllFood" resultType="com.angzhao.entity.foodEntity">
+        SELECT * FROM food_info
     </select>
 
 </mapper>

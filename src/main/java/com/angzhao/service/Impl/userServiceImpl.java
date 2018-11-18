@@ -16,7 +16,8 @@ public class userServiceImpl implements userService {
 
     @Override
     public userEntity insertUser(userEntity userEntity) {
-        return null;
+        userDao.insertByUser(userEntity);
+        return userEntity;
     }
 
 
@@ -38,6 +39,11 @@ public class userServiceImpl implements userService {
     @Override
     public userEntity getUserByUserName(String userName) {
         return userDao.queryByUserName(userName);
+    }
+
+    @Override
+    public userEntity getUserByUserTel(String userTel) {
+        return userDao.queryByUserTel(userTel);
     }
 
 

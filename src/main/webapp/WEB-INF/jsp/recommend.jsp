@@ -23,14 +23,11 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a onClick="javascript :history.back(-1);">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
-    <h1 class="am-header-title"> <a href="#title-link" class="" style="color: #333;">厨房妈妈</a></h1>
-    <div class="am-header-right am-header-nav">
-        <a href="#right-link" class=""> </a>
-    </div>
+    <h1 class="am-header-title"> <a class="" style="color: #333;">推荐</a></h1>
 </header>
 <div class="search-input">
     <form action="/search">

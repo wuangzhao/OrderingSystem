@@ -19,6 +19,8 @@ public interface foodService {
 
     foodEntity insertFoodByFooId(String foodId,String foodName,String foodImg,int foodPrice,int foodReserve,String foodDetails);
 
+    foodEntity insertFood(foodEntity foodEntity);
+
     int deleteFoodByFoodId(String foodId);
 
     foodEntity updateFoodNameByFoodId(String foodId, String foodName);
@@ -34,4 +36,6 @@ public interface foodService {
     foodEntity getByFoodId(String foodId);
 
     List<foodEntity> getFoodListByFoodName(String foodName);
+
+    List<foodEntity> getAllFoodList();
 }

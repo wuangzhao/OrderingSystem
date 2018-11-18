@@ -1,12 +1,26 @@
 package com.angzhao.entity;
 
+import org.springframework.lang.NonNull;
+
 public class userEntity {
 
     private String userId;
 
+    @NonNull
     private String userName;
 
+    @NonNull
     private String userPassword;
+
+    private String userTel;
+
+    public String getUserTel() {
+        return userTel;
+    }
+
+    public void setUserTel(String userTel) {
+        this.userTel = userTel;
+    }
 
     public String getUserId() {
         return userId;

@@ -25,6 +25,27 @@ public class orderFormServiceImpl implements orderFormService {
     }
 
     @Override
+    public List<orderFormEntity> getAdminOrderForm() {
+        List<orderFormEntity> orderFormList = orderFormDao.queryAdminOrderFormList();
+        getOrderFormDetail(orderFormList);
+        return orderFormList;
+    }
+
+    @Override
+    public List<orderFormEntity> getSuccessAdminOrderForm() {
+        List<orderFormEntity> orderFormList = orderFormDao.querySuccessAdminOrderFormList();
+        getOrderFormDetail(orderFormList);
+        return orderFormList;
+    }
+
+    @Override
+    public List<orderFormEntity> getNotSuccessAdminOrderForm() {
+        List<orderFormEntity> orderFormList = orderFormDao.queryNotSuccessAdminOrderFormList();
+        getOrderFormDetail(orderFormList);
+        return orderFormList;
+    }
+
+    @Override
     public List<orderFormEntity> getWaitPayOrderFormByUserId(String userId) {
         List<orderFormEntity> orderFormList = orderFormDao.queryWaitPayOrderFormListByUserId(userId);
         getOrderFormDetail(orderFormList);
@@ -81,6 +102,12 @@ public class orderFormServiceImpl implements orderFormService {
     @Override
     public orderFormEntity getOrderForm(String id) {
         return orderFormDao.queryOrderFormById(id);
+    }
+
+    @Override
+    public String insertAdminOrder(String orderId) {
+        orderFormDao.insertAdminOrderById(orderId);
+        return orderId;
     }
 
     @Override

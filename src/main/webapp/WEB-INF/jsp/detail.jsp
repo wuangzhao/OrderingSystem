@@ -22,9 +22,21 @@
     <script type="text/javascript" src="js/amazeui.min.js" ></script>
 </head>
 <body>
+<header data-am-widget="header" class="am-header am-header-default header">
+    <div class="am-header-left am-header-nav">
+        <a onClick="javascript :history.back(-1);">
+            <i class="am-header-icon am-icon-angle-left"></i>
+        </a>
+    </div>
+    <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;">详情</a></h1>
+</header>
 <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}' >
     <ul class="am-slides">
-        <li><img src="images/foodImg/${food.foodImg}"> </li>
+        <li>
+            <div class="image-container">
+                <img src="images/foodImg/${food.foodImg}">
+            </div>
+        </li>
 
     </ul>
 </div>
@@ -43,8 +55,7 @@
 </div>
 <div class="h50"></div>
 <ul class="fixed-btn">
-    <li ><a href="" class="current">立即购买</a></li>
-    <li><a href="javascript:;">加入购物车</a></li>
+    <li ><a href="/shoppingCart/add?foodId=${food.foodId}" class="current">加入购物车</a></li>
 </ul>
 </body>
 </html>

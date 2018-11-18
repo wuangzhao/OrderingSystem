@@ -32,25 +32,29 @@ public class orderFormController {
         return "order";
     }
 
-    @RequestMapping(value = "cancel")
-    public String cancelOrderForm(String orderFormId) {
-        orderFormEntity orderForm = orderFormService.getOrderForm(orderFormId);
-        if (orderFormService.cancelOrderFormByOrderId(orderForm) != null) {
-            return "success";
-        } else {
-            return "fail";
-        }
 
+
+    @RequestMapping(value = "cancel")
+    public String cancelOrderForm(String orderFormId, HttpSession session) {
+        orderFormEntity orderForm = orderFormService.getOrderForm(orderFormId);
+        userEntity user = (userEntity) session.getAttribute("user");
+        String userId = user.getUserId();
+        if (userId.equals(orderForm.getUserId()) &&
+                orderFormService.cancelOrderFormByOrderId(orderForm) != null) {
+            return "success";
+        }
+        return "fail";
     }
 
     @RequestMapping(value = "pay")
-    public String payOrderForm(@RequestParam("orderFormId") String orderFormId) {
+    public String payOrderForm(@RequestParam("orderFormId") String orderFormId, HttpSession session) {
         orderFormEntity orderForm = orderFormService.getOrderForm(orderFormId);
-        if (orderFormService.payOrderFormByOrderId(orderForm) != null) {
+        userEntity user = (userEntity) session.getAttribute("user");
+        String userId = user.getUserId();
+        if (userId.equals(orderForm.getUserId()) &&
+                orderFormService.payOrderFormByOrderId(orderForm) != null) {
             return "paysuccess";
-        } else {
-            return "fail";
         }
-
+        return "fail";
     }
 }

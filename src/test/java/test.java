@@ -1,8 +1,12 @@
+import com.angzhao.entity.userEntity;
 import com.angzhao.enums.orderFormEnums;
+import com.angzhao.service.userService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,6 +15,9 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:spring/spring-dao.xml", "classpath:spring/spring-service.xml" })
 public class test {
+
+    @Autowired
+    userService userService;
 
     @Test
     public void test() {
@@ -29,8 +36,13 @@ public class test {
 
     @Test
     public void print() {
-        File picPath = new File("");
-        System.out.println(picPath.getAbsolutePath());
+        userEntity user = new userEntity();
+        user.setUserPassword("123455");
+        userEntity userGet = userService.getUserByUserName("test");
+        if (userGet != null || !userGet.getUserPassword().equals(user.getUserPassword())) {
+            System.out.println("123123");
+        }
+
     }
 
 }

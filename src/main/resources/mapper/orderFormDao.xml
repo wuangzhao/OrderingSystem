@@ -16,6 +16,11 @@
         VALUES(#{orderFormId},#{foodId},#{amount})
     </insert>
 
+    <insert id="insertAdminOrderById">
+        INSERT INTO admin_order_form(order_form_id)
+        VALUES (#{orderId})
+    </insert>
+
     <delete id="deleteByOrderForm" parameterType="string">
         DELETE FROM order_form_info
         WHERE order_form_id = #{orderFormId}
@@ -30,27 +35,54 @@
     <select id="queryOrderFormListByUserId" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
         SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
         WHERE user_info.user_id = #{userId}
+        ORDER BY order_form_id DESC
     </select>
 
     <select id="queryOrderFormDetailByOrderFrom" resultType="com.angzhao.entity.orderFormDetailEntity" parameterType="com.angzhao.entity.orderFormEntity">
         SELECT * FROM order_form_food_detail_info INNER JOIN order_form_info ON order_form_food_detail_info.order_form_id = order_form_info.order_form_id INNER JOIN food_info ON order_form_food_detail_info.food_id = food_info.food_id
         WHERE order_form_info.order_form_id = #{orderFormId}
     </select>
+
     <select id="queryOrderFormById" resultType="com.angzhao.entity.orderFormEntity">
         SELECT * FROM order_form_info
         WHERE order_form_id = #{id}
     </select>
+
     <select id="queryWaitPayOrderFormById" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
         SELECT * FROM order_form_info
         WHERE order_form_id = #{id} AND status = 1
+        ORDER BY order_form_id DESC
     </select>
+
     <select id="queryWaitPayOrderFormListByUserId" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
         SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
         WHERE user_info.user_id = #{userId} AND status = 1
+        ORDER BY order_form_id DESC
     </select>
+
     <select id="queryWaitCommentOrderFormListByUserId" resultType="com.angzhao.entity.orderFormEntity" parameterType="string">
         SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
         WHERE user_info.user_id = #{userId} AND status = 2
+        ORDER BY order_form_id DESC
+    </select>
+
+    <select id="querySuccessAdminOrderFormList" resultType="com.angzhao.entity.orderFormEntity">
+        SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
+                                      INNER JOIN admin_order_form ON order_form_info.order_form_id = admin_order_form.order_form_id
+        WHERE status = 2
+        ORDER BY order_form_info.order_form_id DESC
+    </select>
+
+    <select id="queryAdminOrderFormList" resultType="com.angzhao.entity.orderFormEntity">
+        SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
+        WHERE status = 2
+        ORDER BY order_form_info.order_form_id DESC
+    </select>
+
+    <select id="queryNotSuccessAdminOrderFormList" resultType="com.angzhao.entity.orderFormEntity">
+        SELECT * FROM order_form_info INNER JOIN user_info ON order_form_info.user_id = user_info.user_id
+        WHERE order_form_id NOT IN (SELECT order_form_id FROM admin_order_form) AND status = 2
+        ORDER BY order_form_info.order_form_id DESC
     </select>
 
 </mapper>

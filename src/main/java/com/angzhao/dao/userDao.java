@@ -21,4 +21,6 @@ public interface userDao {
 
     userEntity queryByUserName(String userName);
 
+    userEntity queryByUserTel(String userTel);
+
 }

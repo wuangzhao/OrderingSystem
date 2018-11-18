@@ -10,11 +10,21 @@ public class orderFormEntity {
 
     private String status;
 
+    private String createTime;
+
     private int totalPrice;
 
     private int totalAmount;
 
     private List<orderFormDetailEntity> orderFormDetailList;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
     public int getTotalPrice() {
         return totalPrice;

@@ -14,4 +14,6 @@ public interface userService {
 
     userEntity getUserByUserName(String userName);
 
+    userEntity getUserByUserTel(String userTel);
+
 }

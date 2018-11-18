@@ -35,7 +35,7 @@ public class orderFormServiceTest {
 
     @Test
     public void queryOrderFormListByUserId1Test() {
-        List<orderFormEntity> list = orderFormService.getOrderFormByUserId("1234");
+        List<orderFormEntity> list = orderFormService.getOrderFormByUserId("");
         for (orderFormEntity orderFormEntity : list) {
             System.out.println(orderFormEntity.getOrderFormId());
         }

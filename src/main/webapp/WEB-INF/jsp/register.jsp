@@ -15,34 +15,36 @@
     <meta name="description" content="厨房妈妈"/>
     <meta name="keywords" content="厨房妈妈"/>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="css/amazeui.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/amazeui.min.js"></script>
-    <script type="text/javascript" src="js/my.js"></script>
+    <link rel="stylesheet" href="../css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui.min.js"></script>
+    <script type="text/javascript" src="../js/my.js"></script>
 </head>
-<body onload="service()">
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
         <a onClick="javascript :history.back(-1);">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
-    <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;">登陆</a></h1>
+    <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;">注册</a></h1>
 </header>
 <div class="login">
-    <form action="/login/check">
+    <form action="/login/register" method="post">
         <div >
             <span>手机号</span>
-            <input type="text" name="userTel" placeholder="输入用户名">
+            <input type="text" name="userTel" placeholder="输入手机号">
+        </div>
+        <div>
+            <span>用户名</span>
+            <input type="text" name="userName" placeholder="输入用户名">
         </div>
         <div>
             <span>密码</span>
             <input type="password" name="userPassword" placeholder="输入密码">
         </div>
-        <input class="btnLogin" type="submit" value="登陆">
+        <input class="btnLogin" type="submit" value="注册">
     </form>
-    <a class="btnRegister" href="/login/register">注册</a>
 </div>
 </body>
 </html>

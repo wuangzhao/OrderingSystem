@@ -58,23 +58,28 @@ public class shoppingCartServiceImpl implements shoppingCartService {
 
     @Override
     public boolean payment(String userId) {
-        orderFormEntity orderForm = new orderFormEntity();
-        orderForm.setStatus("1");
-        orderForm.setUserId(userId);
-        orderFormDao.insertByOrderForm(orderForm);
-        String orderFormId = orderForm.getOrderFormId();
-        System.out.println(orderFormId);
-        List<orderFormDetailEntity> orderFormDetailList = new ArrayList<>();
         List<shoppingCartDetail> shoppingCartDetailList = shoppingCartDetailDao.queryByUserId(userId);
-        for (shoppingCartDetail detail : shoppingCartDetailList) {
-            orderFormDetailEntity orderFormDetailEntity = new orderFormDetailEntity();
-            orderFormDetailEntity.setOrderFormId(orderFormId);
-            orderFormDetailEntity.setFoodId(detail.getFoodId());
-            orderFormDetailEntity.setAmount(detail.getFoodAmount());
-            orderFormDao.insertOrderFormDetail(orderFormDetailEntity);
-            orderFormDetailList.add(orderFormDetailEntity);
-            shoppingCartDetailDao.delete(detail);
+        if (shoppingCartDetailList.size() == 0) {
+            return false;
         }
-         return false;
+        else {
+            orderFormEntity orderForm = new orderFormEntity();
+            orderForm.setStatus("1");
+            orderForm.setUserId(userId);
+            orderFormDao.insertByOrderForm(orderForm);
+            String orderFormId = orderForm.getOrderFormId();
+            System.out.println(orderFormId);
+            List<orderFormDetailEntity> orderFormDetailList = new ArrayList<>();
+            for (shoppingCartDetail detail : shoppingCartDetailList) {
+                orderFormDetailEntity orderFormDetailEntity = new orderFormDetailEntity();
+                orderFormDetailEntity.setOrderFormId(orderFormId);
+                orderFormDetailEntity.setFoodId(detail.getFoodId());
+                orderFormDetailEntity.setAmount(detail.getFoodAmount());
+                orderFormDao.insertOrderFormDetail(orderFormDetailEntity);
+                orderFormDetailList.add(orderFormDetailEntity);
+                shoppingCartDetailDao.delete(detail);
+            }
+            return true;
+        }
     }
 }

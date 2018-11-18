@@ -17,11 +17,20 @@ public interface orderFormDao {
 
     int insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity);
 
+    int insertAdminOrderById(String orderId);
+
     orderFormEntity queryOrderFormById(String id);
 
     orderFormEntity queryWaitPayOrderFormById(String id);
 
     List<orderFormEntity> queryOrderFormListByUserId(String userId);
+
+    List<orderFormEntity> querySuccessAdminOrderFormList();
+
+    List<orderFormEntity> queryNotSuccessAdminOrderFormList();
+
+    List<orderFormEntity> queryAdminOrderFormList();
+
 
     List<orderFormEntity> queryWaitPayOrderFormListByUserId(String userId);
 

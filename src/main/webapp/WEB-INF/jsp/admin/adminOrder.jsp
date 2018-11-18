@@ -15,13 +15,13 @@
     <meta name="description" content="厨房妈妈"/>
     <meta name="keywords" content="厨房妈妈"/>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="css/amazeui.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/amazeui.min.js"></script>
-    <script type="text/javascript" src="js/my.js"></script>
+    <link rel="stylesheet" href="../css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui.min.js"></script>
+    <script type="text/javascript" src="../js/my.js"></script>
 </head>
-<body onload="service()">
+<body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
         <a onClick="javascript :history.back(-1);">
@@ -33,7 +33,7 @@
 <ul class="order-style">
     <li id="li1"  style="border-bottom: 2px solid #ff5500;
     background: transparent;" onclick="a2(this)"><a>全部</a></li>
-    <li id="li2" onclick="a2(this)"><a>待付款</a></li>
+    <li id="li2" onclick="a2(this)"><a>待交付</a></li>
     <li id="li3" onclick="a2(this)"><a>已完成</a></li>
 </ul>
 <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
@@ -41,13 +41,12 @@
     <c:forEach items="${orderFormList}" var="order">
         <div class="c-comment">
             <span class="c-comment-num">订单编号：${order.orderFormId}</span>
-            <span class="c-comment-suc">${order.status}</span>
         </div>
 
         <div class="c-comment-list" style="border: 0;">
             <c:forEach items="${order.orderFormDetailList}" var="detail" varStatus="varStatus">
                 <a class="o-con" href="/detail?foodId=${detail.foodId}">
-                    <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                    <div class="o-con-img"><img src="../images/foodImg/${detail.foodImg}"></div>
                     <div class="o-con-txt">
                         <p>${detail.foodName}</p>
                         <p class="price">￥${detail.foodPrice}</p>
@@ -60,11 +59,6 @@
             <br/>
             <div class="c-com-money"><span>${order.createTime}</span></div>
             <div class="c-com-money">共计${order.totalAmount}个商品 实付金额：<span>￥ ${order.totalPrice}</span></div>
-        </div>
-        <div class="c-com-btn" name="service">
-            <input type="hidden" value="${order.status}" name="status">
-            <a href="/order/pay?orderFormId=${order.orderFormId}">立即支付</a>
-            <a href="/order/cancel?orderFormId=${order.orderFormId}">取消订单</a>
         </div>
         <div class="clear"></div>
     </c:forEach>
@@ -73,13 +67,12 @@
     <c:forEach items="${waitPayOrderFormList}" var="order">
         <div class="c-comment">
             <span class="c-comment-num">订单编号：${order.orderFormId}</span>
-            <span class="c-comment-suc">${order.status}</span>
         </div>
 
         <div class="c-comment-list" style="border: 0;">
             <c:forEach items="${order.orderFormDetailList}" var="detail">
                 <a class="o-con" href="/detail?foodId=${detail.foodId}">
-                    <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                    <div class="o-con-img"><img src="../images/foodImg/${detail.foodImg}"></div>
                     <div class="o-con-txt">
                         <p>${detail.foodName}</p>
                         <p class="price">￥${detail.foodPrice}</p>
@@ -95,8 +88,8 @@
         </div>
         <div class="c-com-btn" name="service">
             <input type="hidden" value="${order.status}" name="status">
-            <a href="/order/pay?orderFormId=${order.orderFormId}">立即支付</a>
-            <a href="/order/cancel?orderFormId=${order.orderFormId}">取消订单</a>
+            <%--<a href="/order/pay?orderFormId=${order.orderFormId}">立即支付</a>--%>
+            <a href="/admin/addToAdminOrder?orderFormId=${order.orderFormId}">交付订单</a>
         </div>
         <div class="clear"></div>
     </c:forEach>
@@ -105,13 +98,12 @@
     <c:forEach items="${waitCommentOrderFormList}" var="order">
         <div class="c-comment">
             <span class="c-comment-num">订单编号：${order.orderFormId}</span>
-            <span class="c-comment-suc">${order.status}</span>
         </div>
 
         <div class="c-comment-list" style="border: 0;">
             <c:forEach items="${order.orderFormDetailList}" var="detail">
                 <a class="o-con" href="/detail?foodId=${detail.foodId}">
-                    <div class="o-con-img"><img src="images/foodImg/${detail.foodImg}"></div>
+                    <div class="o-con-img"><img src="../images/foodImg/${detail.foodImg}"></div>
                     <div class="o-con-txt">
                         <p>${detail.foodName}</p>
                         <p class="price">￥${detail.foodPrice}</p>

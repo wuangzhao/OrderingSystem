@@ -46,8 +46,10 @@ public class shoppingCartController {
     @RequestMapping("pay")
     public String pay(HttpSession session) {
         userEntity user = (userEntity) session.getAttribute("user");
-        shoppingCartService.payment(user.getUserId());
-        return "redirect:/order";
+        if (shoppingCartService.payment(user.getUserId())) {
+            return "redirect:/order";
+        } else {
+            return "redirect:/shoppingCart";
+        }
     }
-
 }
