@@ -19,4 +19,6 @@ public interface recommendDao {
     foodEntity queryRecommendId(foodEntity foodEntity);
 
     List<foodEntity> queryRecommendList();
+
+    List<foodEntity> queryNotRecommendList();
 }

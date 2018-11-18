@@ -23,6 +23,10 @@
             <mvc:mapping path="/shoppingCart/**"/>
             <bean class="com.angzhao.interceptor.loginInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <bean class="com.angzhao.interceptor.adminInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!--配置jsp-->

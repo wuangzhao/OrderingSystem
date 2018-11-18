@@ -29,14 +29,8 @@ public class recommendServiceImpl implements recommendService{
     }
 
     @Override
-    public foodEntity deleteRecommendFood(foodEntity food) {
-        int i = recommendDao.deleteRecommendId(food);
-        if (i == 1) {
-            return food;
-        }
-        else {
-            return null;
-        }
+    public int deleteRecommendFood(foodEntity food) {
+        return recommendDao.deleteRecommendId(food);
     }
 
     @Override
@@ -47,6 +41,11 @@ public class recommendServiceImpl implements recommendService{
     @Override
     public List<foodEntity> getRecommendList() {
         return recommendDao.queryRecommendList();
+    }
+
+    @Override
+    public List<foodEntity> getNotRecommendList() {
+        return recommendDao.queryNotRecommendList();
     }
 
 }

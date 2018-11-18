@@ -14,9 +14,11 @@ public interface recommendService {
      */
     foodEntity insertRecommendFood(foodEntity food);
 
-    foodEntity deleteRecommendFood(foodEntity food);
+    int deleteRecommendFood(foodEntity food);
 
     foodEntity queryRecommendFood(foodEntity food);
 
     List<foodEntity> getRecommendList();
+
+    List<foodEntity> getNotRecommendList();
 }

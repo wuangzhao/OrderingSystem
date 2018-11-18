@@ -1099,3 +1099,17 @@ li {
     position: absolute;
     z-index: -1;
 }
+
+.home-label {
+    border: 1px solid #ff9934;
+    color: #ff9934;
+    float: right;
+    display: block;
+    height: 3.5rem;
+    width: 30%;
+    border-radius: 5px;
+    font-size: 2.4rem;
+    text-align: -webkit-center;
+    margin-right: 2%;
+    margin-top: 5%;
+}

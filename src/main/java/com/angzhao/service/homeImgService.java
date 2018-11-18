@@ -6,12 +6,6 @@ import java.util.List;
 
 public interface homeImgService {
 
-    /**
-     *
-     * @param homeImgPath
-     * @return
-     */
-
     homeImgEntity insertHomeImg(String homeImgPath);
 
     int deleteHomeImg(String homeImgPath);

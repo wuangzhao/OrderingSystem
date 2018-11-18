@@ -31,8 +31,8 @@
     <li><a href="/admin/order"><i class="am-icon-newspaper-o"></i><span>待交付订单</span></a></li>
     <li><a href="/admin/foodUpload"><i class="am-icon-newspaper-o"></i><span>上架</span></a></li>
     <li><a href="/admin/foodDelete"><i class="am-icon-newspaper-o"></i><span>下架</span></a></li>
-    <li><a href="/order"><i class="am-icon-newspaper-o"></i><span>轮播图</span></a></li>
-    <li><a href="/order"><i class="am-icon-newspaper-o"></i><span>推荐</span></a></li>
+    <li><a href="/admin/slideShow"><i class="am-icon-newspaper-o"></i><span>轮播图</span></a></li>
+    <li><a href="/admin/recommend"><i class="am-icon-newspaper-o"></i><span>推荐</span></a></li>
 </ul>
 <div class="h50"></div>
 <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">

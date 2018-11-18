@@ -8137,6 +8137,7 @@ ul.am-dropdown-content > .am-disabled > a:focus, ul.am-dropdown-content > .am-di
 
 .am-slider .am-slides img {
     width: 100%;
+    max-height: 300px;
     display: block
 }
 

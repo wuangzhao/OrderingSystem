@@ -38,20 +38,8 @@ public class homeImgServiceImpl implements homeImgService {
     }
 
     @Override
-    public int deleteHomeImg(String homeImgPath) {
-        homeImgEntity homeImgEntity = homeImgDao.queryHomeImg(homeImgPath);
-        if(homeImgEntity != null) {
-           int a = homeImgDao.deleteHomeImg(homeImgPath);
-           if(a == 1) {
-               return 1;
-           }
-           else {
-               return 0;
-           }
-        }
-        else {
-            return 0;
-        }
+    public int deleteHomeImg(String homeImgId) {
+        return homeImgDao.deleteHomeImg(homeImgId);
     }
 
 

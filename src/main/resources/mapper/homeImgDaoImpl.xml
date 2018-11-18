@@ -8,7 +8,7 @@
 
     <delete id="deleteHomeImg" parameterType="string">
         DELETE FROM home_img
-        WHERE home_img_path = #{homeImgPath}
+        WHERE home_img_id = #{homeImgId}
     </delete>
 
     <select id="queryHomeImg" parameterType="string" resultType="com.angzhao.entity.homeImgEntity">

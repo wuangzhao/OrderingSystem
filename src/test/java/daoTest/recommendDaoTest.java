@@ -39,9 +39,6 @@ public class recommendDaoTest {
 
     @Test
     public void deleteRecommendTest() {
-        foodEntity food = foodDao.queryByFoodId("fd_1000a002");
-        foodEntity food1 = recommendService.deleteRecommendFood(food);
-        assertEquals(food1,food);
     }
 
     @Test

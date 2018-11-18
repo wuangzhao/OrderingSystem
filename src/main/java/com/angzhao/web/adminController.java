@@ -1,9 +1,10 @@
 package com.angzhao.web;
 
 import com.angzhao.entity.foodEntity;
+import com.angzhao.entity.homeImgEntity;
 import com.angzhao.entity.orderFormEntity;
-import com.angzhao.service.foodService;
-import com.angzhao.service.orderFormService;
+import com.angzhao.entity.userEntity;
+import com.angzhao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,15 @@ public class adminController {
 
     @Autowired
     foodService foodService;
+
+    @Autowired
+    recommendService recommendService;
+
+    @Autowired
+    homeImgService homeImgService;
+
+    @Autowired
+    userService userService;
 
     @RequestMapping
     public String adminPage() {
@@ -95,5 +105,93 @@ public class adminController {
             return "success";
         }
         return "fail";
+    }
+
+    @RequestMapping(value = "recommend", method = RequestMethod.GET)
+    public String recommend(Model model) {
+        List<foodEntity> foodEntityList = recommendService.getRecommendList();
+        List<foodEntity> notCommendList = recommendService.getNotRecommendList();
+        model.addAttribute("foodList", foodEntityList);
+        model.addAttribute("notCommendList", notCommendList);
+        return "admin/recommend";
+    }
+
+    @RequestMapping(value = "recommendDelete", method = RequestMethod.GET)
+    public String recommendDelete(String foodId) {
+        foodEntity foodEntity = new foodEntity();
+        foodEntity.setFoodId(foodId);
+        if (recommendService.deleteRecommendFood(foodEntity) == 1) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
+
+    @RequestMapping(value = "recommendAdd", method = RequestMethod.GET)
+    public String recommendAdd(String foodId) {
+        foodEntity foodEntity = new foodEntity();
+        foodEntity.setFoodId(foodId);
+        if (recommendService.insertRecommendFood(foodEntity) != null) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
+
+    @RequestMapping(value = "slideShow", method = RequestMethod.GET)
+    public String slideShow(Model model) {
+        List<homeImgEntity> homeImgEntityList = homeImgService.getAllImgName();
+        model.addAttribute("homeImgEntityList", homeImgEntityList);
+        return "admin/slideShow";
+    }
+
+    @RequestMapping(value = "slideShowDelete", method = RequestMethod.GET)
+    public String slideShowDelete(String picId, HttpSession session) {
+        String foodFileName = foodService.getByFoodId(picId).getFoodImg();
+        String picPath = session.getServletContext().getRealPath("/images/home/");
+        File file = new File(picPath+foodFileName);
+        if (homeImgService.deleteHomeImg(picId) == 1) {
+            file.delete();
+            return "success";
+        }
+        return "fail";
+    }
+
+
+    @RequestMapping(value = "slideShowUpload", method = RequestMethod.POST)
+    public String slideShowUpload(MultipartFile imgFile, HttpSession session) {
+        if (imgFile.isEmpty()) {
+            return "fail";
+        } else {
+            String originalFileName = imgFile.getOriginalFilename();
+            String foodId = UUID.randomUUID().toString();
+            String newFileName = foodId+originalFileName.substring(originalFileName.lastIndexOf("."));
+            String picPath = session.getServletContext().getRealPath("/images/home/");
+            File newFile = new File(picPath+newFileName);
+            try {
+                imgFile.transferTo(newFile);
+                homeImgService.insertHomeImg(newFileName);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return "success";
+        }
+
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String loginPage() {
+        return "admin/login";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String loginCheck(userEntity user, HttpSession session) {
+        userEntity userGet = userService.getUserByUserTel(user.getUserTel());
+        if (userGet != null && userGet.getUserGroup() == 2 && userGet.getUserPassword().equals(user.getUserPassword())) {
+            session.setAttribute("user", userGet);
+            return "redirect:../admin";
+        } else {
+            return "admin/login";
+        }
     }
 }

@@ -12,7 +12,17 @@ public class userEntity {
     @NonNull
     private String userPassword;
 
+    private int userGroup;
+
     private String userTel;
+
+    public int getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(int userGroup) {
+        this.userGroup = userGroup;
+    }
 
     public String getUserTel() {
         return userTel;
