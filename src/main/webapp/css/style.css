@@ -886,12 +886,26 @@ li {
     text-align:center;
 }
 
+.my-style-fail {
+    text-align:center;
+    color: #cb2d00;
+    font-size: 5rem;
+}
+
+.my-style-fail {
+    text-align:center;
+    color: #cb2d00;
+    font-size: 5rem;
+}
+
+
 .my-style img {
     height: 40%;
 }
 
 .my-style h1 {
     color: #ff9934;
+    font-size: 3rem;
 }
 
 .login {

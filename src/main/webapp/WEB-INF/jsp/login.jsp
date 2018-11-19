@@ -10,10 +10,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>厨房妈妈</title>
-    <!--sucai58.com 专注html3+css3素材的网站-->
-    <meta name="description" content="厨房妈妈"/>
-    <meta name="keywords" content="厨房妈妈"/>
+    <title>用户登陆</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="css/amazeui.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
@@ -34,7 +31,7 @@
     <form action="/login/check">
         <div >
             <span>手机号</span>
-            <input type="text" name="userTel" placeholder="输入用户名">
+            <input type="text" name="userTel" placeholder="输入手机号">
         </div>
         <div>
             <span>密码</span>

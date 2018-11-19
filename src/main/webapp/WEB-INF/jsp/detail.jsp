@@ -12,9 +12,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>厨房妈妈</title>
-    <meta name="description" content="厨房妈妈" />
-    <meta name="keywords" content="厨房妈妈"/>
+    <title>${food.foodName}</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="css/amazeui.min.css" />
     <link rel="stylesheet" href="css/style.css" />

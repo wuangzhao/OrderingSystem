@@ -10,10 +10,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>厨房妈妈</title>
-    <!--sucai58.com 专注html3+css3素材的网站-->
-    <meta name="description" content="厨房妈妈"/>
-    <meta name="keywords" content="厨房妈妈"/>
+    <title>轮播图修改</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="../css/amazeui.min.css"/>
     <link rel="stylesheet" href="../css/style.css"/>

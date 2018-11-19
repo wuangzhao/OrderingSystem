@@ -57,7 +57,7 @@ public class adminController {
     @RequestMapping(value = "addToAdminOrder")
     public String payOrderForm(@RequestParam("orderFormId") String orderFormId) {
         orderFormService.insertAdminOrder(orderFormId);
-        return "success";
+        return "admin/success";
     }
 
     @RequestMapping(value = "foodUpload", method = RequestMethod.GET)
@@ -68,7 +68,7 @@ public class adminController {
     @RequestMapping(value = "foodUpload", method = RequestMethod.POST)
     public String foodUploadPage(foodEntity foodEntity, MultipartFile foodImgFile, HttpSession session) {
         if (foodImgFile.isEmpty()) {
-            return "fail";
+            return "admin/fail";
         } else {
             String originalFileName = foodImgFile.getOriginalFilename();
             String foodId = UUID.randomUUID().toString();
@@ -83,7 +83,7 @@ public class adminController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return "success";
+            return "admin/success";
         }
 
     }
@@ -102,9 +102,9 @@ public class adminController {
         File file = new File(picPath+foodFileName);
         if (foodService.deleteFoodByFoodId(foodId) == 1){
             file.delete();
-            return "success";
+            return "admin/success";
         }
-        return "fail";
+        return "admin/fail";
     }
 
     @RequestMapping(value = "recommend", method = RequestMethod.GET)
@@ -121,9 +121,9 @@ public class adminController {
         foodEntity foodEntity = new foodEntity();
         foodEntity.setFoodId(foodId);
         if (recommendService.deleteRecommendFood(foodEntity) == 1) {
-            return "success";
+            return "admin/success";
         } else {
-            return "fail";
+            return "admin/fail";
         }
     }
 
@@ -132,9 +132,9 @@ public class adminController {
         foodEntity foodEntity = new foodEntity();
         foodEntity.setFoodId(foodId);
         if (recommendService.insertRecommendFood(foodEntity) != null) {
-            return "success";
+            return "admin/success";
         } else {
-            return "fail";
+            return "admin/fail";
         }
     }
 
@@ -152,16 +152,16 @@ public class adminController {
         File file = new File(picPath+foodFileName);
         if (homeImgService.deleteHomeImg(picId) == 1) {
             file.delete();
-            return "success";
+            return "admin/success";
         }
-        return "fail";
+        return "admin/fail";
     }
 
 
     @RequestMapping(value = "slideShowUpload", method = RequestMethod.POST)
     public String slideShowUpload(MultipartFile imgFile, HttpSession session) {
         if (imgFile.isEmpty()) {
-            return "fail";
+            return "admin/fail";
         } else {
             String originalFileName = imgFile.getOriginalFilename();
             String foodId = UUID.randomUUID().toString();
@@ -174,7 +174,7 @@ public class adminController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return "success";
+            return "admin/success";
         }
 
     }
