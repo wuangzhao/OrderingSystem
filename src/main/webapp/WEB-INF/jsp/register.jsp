@@ -26,9 +26,10 @@
     </div>
     <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;">注册</a></h1>
 </header>
+</body>
 <div class="login">
     <form action="/login/register" method="post">
-        <div >
+        <div>
             <span>手机号</span>
             <input type="text" name="userTel" placeholder="输入手机号">
         </div>

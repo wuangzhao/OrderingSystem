@@ -26,6 +26,7 @@
     </div>
     <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;"></a></h1>
 </header>
+<body>
 <div class="login">
     <form action="/admin/foodUpload" enctype="multipart/form-data" method="post">
         <div>

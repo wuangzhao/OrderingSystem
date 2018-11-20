@@ -17,7 +17,7 @@
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/amazeui.min.js"></script>
 </head>
-<body onload="service()">
+<body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
         <a onClick="javascript :history.back(-1);">
