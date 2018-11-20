@@ -1,6 +1,6 @@
-package com.angzhao.entity;
+package com.angzhao.model;
 
-public class shoppingCartDetail {
+public class shoppingCartDetailModel {
 
     private String userId;
 

@@ -1,6 +1,6 @@
 package com.angzhao.service;
 
-import com.angzhao.entity.orderFormDetailEntity;
+import com.angzhao.model.orderFormDetailModel;
 import com.angzhao.entity.orderFormEntity;
 
 import java.util.List;
@@ -28,6 +28,6 @@ public interface orderFormService {
     String insertAdminOrder(String orderId);
 
 
-    orderFormDetailEntity insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity);
+    orderFormDetailModel insertOrderFormDetail(orderFormDetailModel orderFormDetailModel);
 
 }

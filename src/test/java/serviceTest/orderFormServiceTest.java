@@ -1,8 +1,7 @@
 package serviceTest;
 
-import com.angzhao.entity.orderFormDetailEntity;
+import com.angzhao.model.orderFormDetailModel;
 import com.angzhao.entity.orderFormEntity;
-import com.angzhao.entity.userEntity;
 import com.angzhao.service.orderFormService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,8 +24,8 @@ public class orderFormServiceTest {
         for (orderFormEntity orderFormEntity : list) {
             System.out.println(orderFormEntity.getStatus());
             System.out.println(orderFormEntity.toString());
-            for (orderFormDetailEntity orderFormDetailEntity : orderFormEntity.getOrderFormDetailList()) {
-                System.out.println(orderFormDetailEntity.toString());
+            for (orderFormDetailModel orderFormDetailModel : orderFormEntity.getOrderFormDetailList()) {
+                System.out.println(orderFormDetailModel.toString());
             }
         }
 

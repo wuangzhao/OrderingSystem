@@ -1,7 +1,7 @@
 package com.angzhao.web;
 
-import com.angzhao.entity.shoppingCart;
-import com.angzhao.entity.shoppingCartDetail;
+import com.angzhao.entity.shoppingCartEntity;
+import com.angzhao.model.shoppingCartDetailModel;
 import com.angzhao.entity.userEntity;
 import com.angzhao.service.orderFormService;
 import com.angzhao.service.shoppingCartService;
@@ -27,19 +27,19 @@ public class shoppingCartController {
     public String shoppingCartList(HttpSession session, Model model) {
         userEntity user = (userEntity) session.getAttribute("user");
         String userId = user.getUserId();
-        shoppingCart shoppingCart = shoppingCartService.getShoppingCartListByUserId(userId);
-        model.addAttribute("shoppingCart", shoppingCart);
+        shoppingCartEntity shoppingCartEntity = shoppingCartService.getShoppingCartListByUserId(userId);
+        model.addAttribute("shoppingCart", shoppingCartEntity);
         return "shoppingCart";
     }
 
     @RequestMapping("add")
     public String addToShoppingCart(String foodId, HttpSession session) {
         userEntity user = (userEntity) session.getAttribute("user");
-        shoppingCartDetail shoppingCartDetail = new shoppingCartDetail();
-        shoppingCartDetail.setUserId(user.getUserId());
-        shoppingCartDetail.setFoodId(foodId);
-        shoppingCartDetail.setFoodAmount(1);
-        shoppingCartService.addShoppingCartDetail(shoppingCartDetail);
+        shoppingCartDetailModel shoppingCartDetailModel = new shoppingCartDetailModel();
+        shoppingCartDetailModel.setUserId(user.getUserId());
+        shoppingCartDetailModel.setFoodId(foodId);
+        shoppingCartDetailModel.setFoodAmount(1);
+        shoppingCartService.addShoppingCartDetail(shoppingCartDetailModel);
         return "redirect:/shoppingCart";
     }
 

@@ -1,12 +1,14 @@
 package com.angzhao.entity;
 
+import com.angzhao.model.foodAndAmountModel;
+
 import java.util.List;
 
-public class shoppingCart {
+public class shoppingCartEntity {
 
     private String userId;
 
-    private List<foodAndAmount> foodAndAmountList;
+    private List<foodAndAmountModel> foodAndAmountModelList;
 
     private int totalPrice;
 
@@ -36,11 +38,11 @@ public class shoppingCart {
         this.userId = userId;
     }
 
-    public List<foodAndAmount> getFoodAndAmountList() {
-        return foodAndAmountList;
+    public List<foodAndAmountModel> getFoodAndAmountModelList() {
+        return foodAndAmountModelList;
     }
 
-    public void setFoodAndAmountList(List<foodAndAmount> foodAndAmountList) {
-        this.foodAndAmountList = foodAndAmountList;
+    public void setFoodAndAmountModelList(List<foodAndAmountModel> foodAndAmountModelList) {
+        this.foodAndAmountModelList = foodAndAmountModelList;
     }
 }

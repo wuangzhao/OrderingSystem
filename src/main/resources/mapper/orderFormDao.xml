@@ -11,7 +11,7 @@
         VALUES(#{userId},#{status})
     </insert>
 
-    <insert id="insertOrderFormDetail" parameterType="com.angzhao.entity.orderFormDetailEntity">
+    <insert id="insertOrderFormDetail" parameterType="com.angzhao.model.orderFormDetailModel">
         INSERT INTO order_form_food_detail_info(order_form_id, food_id, amount)
         VALUES(#{orderFormId},#{foodId},#{amount})
     </insert>
@@ -38,7 +38,7 @@
         ORDER BY order_form_id DESC
     </select>
 
-    <select id="queryOrderFormDetailByOrderFrom" resultType="com.angzhao.entity.orderFormDetailEntity" parameterType="com.angzhao.entity.orderFormEntity">
+    <select id="queryOrderFormDetailByOrderFrom" resultType="com.angzhao.model.orderFormDetailModel" parameterType="com.angzhao.entity.orderFormEntity">
         SELECT * FROM order_form_food_detail_info INNER JOIN order_form_info ON order_form_food_detail_info.order_form_id = order_form_info.order_form_id INNER JOIN food_info ON order_form_food_detail_info.food_id = food_info.food_id
         WHERE order_form_info.order_form_id = #{orderFormId}
     </select>

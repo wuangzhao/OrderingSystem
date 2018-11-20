@@ -20,7 +20,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/member/**"/>
             <mvc:mapping path="/order/**"/>
-            <mvc:mapping path="/shoppingCart/**"/>
+            <mvc:mapping path="/shoppingCartEntity/**"/>
             <bean class="com.angzhao.interceptor.loginInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>

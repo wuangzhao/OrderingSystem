@@ -1,18 +1,18 @@
 package com.angzhao.dao;
 
-import com.angzhao.entity.shoppingCartDetail;
+import com.angzhao.model.shoppingCartDetailModel;
 
 import java.util.List;
 
 public interface shoppingCartDetailDao {
 
-    int insert(shoppingCartDetail shoppingCartDetail);
+    int insert(shoppingCartDetailModel shoppingCartDetailModel);
 
-    int delete(shoppingCartDetail shoppingCartDetail);
+    int delete(shoppingCartDetailModel shoppingCartDetailModel);
 
-    int update(shoppingCartDetail shoppingCartDetail);
+    int update(shoppingCartDetailModel shoppingCartDetailModel);
 
-    shoppingCartDetail queryByFoodId(String foodId);
+    shoppingCartDetailModel queryByFoodId(String foodId);
 
-    List<shoppingCartDetail> queryByUserId(String userId);
+    List<shoppingCartDetailModel> queryByUserId(String userId);
 }

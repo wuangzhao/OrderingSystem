@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>推荐</title>
+    <title>全部</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="css/amazeui.min.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -24,7 +24,7 @@
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
-    <h1 class="am-header-title"> <a class="" style="color: #333;">推荐</a></h1>
+    <h1 class="am-header-title"> <a class="" style="color: #333;">全部</a></h1>
 </header>
 <div class="search-input">
     <form action="/search">

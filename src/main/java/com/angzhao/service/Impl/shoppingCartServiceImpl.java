@@ -4,6 +4,9 @@ import com.angzhao.dao.foodDao;
 import com.angzhao.dao.orderFormDao;
 import com.angzhao.dao.shoppingCartDetailDao;
 import com.angzhao.entity.*;
+import com.angzhao.model.foodAndAmountModel;
+import com.angzhao.model.orderFormDetailModel;
+import com.angzhao.model.shoppingCartDetailModel;
 import com.angzhao.service.shoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,42 +27,42 @@ public class shoppingCartServiceImpl implements shoppingCartService {
     orderFormDao orderFormDao;
 
     @Override
-    public shoppingCart getShoppingCartListByUserId(String userId) {
-        List<shoppingCartDetail> shoppingCartDetailList = shoppingCartDetailDao.queryByUserId(userId);
-        shoppingCart shoppingCart = new shoppingCart();
-        List<foodAndAmount> foodAndAmountList = new ArrayList<>();
-        for (shoppingCartDetail detail : shoppingCartDetailList) {
-            foodAndAmount foodAndAmount = new foodAndAmount();
-            foodAndAmount.setFoodAmount(detail.getFoodAmount());
+    public shoppingCartEntity getShoppingCartListByUserId(String userId) {
+        List<shoppingCartDetailModel> shoppingCartDetailModelList = shoppingCartDetailDao.queryByUserId(userId);
+        shoppingCartEntity shoppingCartEntity = new shoppingCartEntity();
+        List<foodAndAmountModel> foodAndAmountModelList = new ArrayList<>();
+        for (shoppingCartDetailModel detail : shoppingCartDetailModelList) {
+            foodAndAmountModel foodAndAmountModel = new foodAndAmountModel();
+            foodAndAmountModel.setFoodAmount(detail.getFoodAmount());
             foodEntity foodEntity = foodDao.queryByFoodId(detail.getFoodId());
-            foodAndAmount.setFoodEntity(foodEntity);
-            foodAndAmountList.add(foodAndAmount);
-            int totalPrice = shoppingCart.getTotalPrice();
+            foodAndAmountModel.setFoodEntity(foodEntity);
+            foodAndAmountModelList.add(foodAndAmountModel);
+            int totalPrice = shoppingCartEntity.getTotalPrice();
             totalPrice += foodEntity.getFoodPrice() * detail.getFoodAmount();
-            shoppingCart.setTotalPrice(totalPrice);
+            shoppingCartEntity.setTotalPrice(totalPrice);
         }
-        shoppingCart.setFoodAndAmountList(foodAndAmountList);
-        shoppingCart.setUserId(userId);
-        shoppingCart.setAmount(foodAndAmountList.size());
-        return shoppingCart;
+        shoppingCartEntity.setFoodAndAmountModelList(foodAndAmountModelList);
+        shoppingCartEntity.setUserId(userId);
+        shoppingCartEntity.setAmount(foodAndAmountModelList.size());
+        return shoppingCartEntity;
     }
 
     @Override
-    public boolean addShoppingCartDetail(shoppingCartDetail shoppingCartDetail) {
-        List<shoppingCartDetail> cartDetailList = shoppingCartDetailDao.queryByUserId(shoppingCartDetail.getUserId());
-        for (com.angzhao.entity.shoppingCartDetail detail : cartDetailList) {
-            if (detail.getFoodId().equals(shoppingCartDetail.getFoodId())) {
-                shoppingCartDetail.setFoodAmount(detail.getFoodAmount() + 1);
-                return shoppingCartDetailDao.update(shoppingCartDetail) == 1;
+    public boolean addShoppingCartDetail(shoppingCartDetailModel shoppingCartDetailModel) {
+        List<shoppingCartDetailModel> cartDetailList = shoppingCartDetailDao.queryByUserId(shoppingCartDetailModel.getUserId());
+        for (shoppingCartDetailModel detail : cartDetailList) {
+            if (detail.getFoodId().equals(shoppingCartDetailModel.getFoodId())) {
+                shoppingCartDetailModel.setFoodAmount(detail.getFoodAmount() + 1);
+                return shoppingCartDetailDao.update(shoppingCartDetailModel) == 1;
             }
         }
-        return shoppingCartDetailDao.insert(shoppingCartDetail) == 1;
+        return shoppingCartDetailDao.insert(shoppingCartDetailModel) == 1;
     }
 
     @Override
     public boolean payment(String userId) {
-        List<shoppingCartDetail> shoppingCartDetailList = shoppingCartDetailDao.queryByUserId(userId);
-        if (shoppingCartDetailList.size() == 0) {
+        List<shoppingCartDetailModel> shoppingCartDetailModelList = shoppingCartDetailDao.queryByUserId(userId);
+        if (shoppingCartDetailModelList.size() == 0) {
             return false;
         }
         else {
@@ -69,14 +72,14 @@ public class shoppingCartServiceImpl implements shoppingCartService {
             orderFormDao.insertByOrderForm(orderForm);
             String orderFormId = orderForm.getOrderFormId();
             System.out.println(orderFormId);
-            List<orderFormDetailEntity> orderFormDetailList = new ArrayList<>();
-            for (shoppingCartDetail detail : shoppingCartDetailList) {
-                orderFormDetailEntity orderFormDetailEntity = new orderFormDetailEntity();
-                orderFormDetailEntity.setOrderFormId(orderFormId);
-                orderFormDetailEntity.setFoodId(detail.getFoodId());
-                orderFormDetailEntity.setAmount(detail.getFoodAmount());
-                orderFormDao.insertOrderFormDetail(orderFormDetailEntity);
-                orderFormDetailList.add(orderFormDetailEntity);
+            List<orderFormDetailModel> orderFormDetailList = new ArrayList<>();
+            for (shoppingCartDetailModel detail : shoppingCartDetailModelList) {
+                orderFormDetailModel orderFormDetailModel = new orderFormDetailModel();
+                orderFormDetailModel.setOrderFormId(orderFormId);
+                orderFormDetailModel.setFoodId(detail.getFoodId());
+                orderFormDetailModel.setAmount(detail.getFoodAmount());
+                orderFormDao.insertOrderFormDetail(orderFormDetailModel);
+                orderFormDetailList.add(orderFormDetailModel);
                 shoppingCartDetailDao.delete(detail);
             }
             return true;

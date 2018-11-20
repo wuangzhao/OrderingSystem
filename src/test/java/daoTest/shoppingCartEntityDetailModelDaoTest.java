@@ -1,7 +1,7 @@
 package daoTest;
 
 import com.angzhao.dao.shoppingCartDetailDao;
-import com.angzhao.entity.shoppingCartDetail;
+import com.angzhao.model.shoppingCartDetailModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,26 +13,26 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:spring/spring-dao.xml", "classpath:spring/spring-service.xml" })
-public class shoppingCartDetailDaoTest {
+public class shoppingCartEntityDetailModelDaoTest {
 
     @Autowired
     shoppingCartDetailDao shoppingCartDetailDao;
 
     @Test
     public void insert() {
-        shoppingCartDetail shoppingCartDetail = new shoppingCartDetail();
-        shoppingCartDetail.setFoodAmount(1);
-        shoppingCartDetail.setUserId("1234");
-        assertEquals(shoppingCartDetailDao.insert(shoppingCartDetail), 1);
+        shoppingCartDetailModel shoppingCartDetailModel = new shoppingCartDetailModel();
+        shoppingCartDetailModel.setFoodAmount(1);
+        shoppingCartDetailModel.setUserId("1234");
+        assertEquals(shoppingCartDetailDao.insert(shoppingCartDetailModel), 1);
 
     }
 
     @Test
     public void delete() {
-        shoppingCartDetail shoppingCartDetail = new shoppingCartDetail();
-        shoppingCartDetail.setFoodAmount(1);
-        shoppingCartDetail.setUserId("1234");
-        assertEquals(shoppingCartDetailDao.delete(shoppingCartDetail), 1);
+        shoppingCartDetailModel shoppingCartDetailModel = new shoppingCartDetailModel();
+        shoppingCartDetailModel.setFoodAmount(1);
+        shoppingCartDetailModel.setUserId("1234");
+        assertEquals(shoppingCartDetailDao.delete(shoppingCartDetailModel), 1);
     }
 
     @Test

@@ -25,14 +25,14 @@
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
-    <h1 class="am-header-title"><a href="#title-link" class="" style="color: #333;">购物车</a></h1>
+    <h1 class="am-header-title"><a class="" style="color: #333;">购物车</a></h1>
 </header>
 <ul class="order-style">
     <li id="li1"  style="border-bottom: 2px solid #ff5500;
     background: transparent; " onclick="a2(this)"><a>共${shoppingCart.amount}个商品</a></li>
 </ul>
 <div class="c-comment-list" style="border: 0;">
-    <c:forEach items="${shoppingCart.foodAndAmountList}" var="detail" varStatus="varStatus">
+    <c:forEach items="${shoppingCart.foodAndAmountModelList}" var="detail" varStatus="varStatus">
         <a class="o-con" href="/detail?foodId=${detail.foodEntity.foodId}">
             <div class="o-con-img"><img src="images/foodImg/${detail.foodEntity.foodImg}"></div>
             <div class="o-con-txt">

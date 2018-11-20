@@ -1,6 +1,6 @@
 package com.angzhao.dao;
 
-import com.angzhao.entity.orderFormDetailEntity;
+import com.angzhao.model.orderFormDetailModel;
 import com.angzhao.entity.orderFormEntity;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public interface orderFormDao {
 
     int updateByOrderForm(orderFormEntity orderFormEntity);
 
-    int insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity);
+    int insertOrderFormDetail(orderFormDetailModel orderFormDetailModel);
 
     int insertAdminOrderById(String orderId);
 
@@ -36,7 +36,7 @@ public interface orderFormDao {
 
     List<orderFormEntity> queryWaitCommentOrderFormListByUserId(String userId);
 
-    List<orderFormDetailEntity> queryOrderFormDetailByOrderFrom(orderFormEntity orderForm);
+    List<orderFormDetailModel> queryOrderFormDetailByOrderFrom(orderFormEntity orderForm);
 
 
 }

@@ -1,9 +1,8 @@
 package daoTest;
 
 import com.angzhao.dao.orderFormDao;
-import com.angzhao.entity.orderFormDetailEntity;
+import com.angzhao.model.orderFormDetailModel;
 import com.angzhao.entity.orderFormEntity;
-import com.angzhao.entity.userEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +42,9 @@ public class orderFromDaoTest {
     public void queryOrderFormDetailByOrderFromId() {
         orderFormEntity orderFormEntity = new orderFormEntity();
         orderFormEntity.setOrderFormId("10000");
-        List<orderFormDetailEntity> list = orderFromDao.queryOrderFormDetailByOrderFrom(orderFormEntity);
-        for (orderFormDetailEntity orderFormDetailEntity : list) {
-            System.out.println(orderFormDetailEntity.toString());
+        List<orderFormDetailModel> list = orderFromDao.queryOrderFormDetailByOrderFrom(orderFormEntity);
+        for (orderFormDetailModel orderFormDetailModel : list) {
+            System.out.println(orderFormDetailModel.toString());
 
         }
         assertEquals(list.size(), 2);

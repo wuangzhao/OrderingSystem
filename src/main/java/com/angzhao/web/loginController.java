@@ -22,7 +22,7 @@ public class loginController {
     }
 
 
-    @RequestMapping("check")
+    @RequestMapping(value = "check", method = RequestMethod.POST)
     public String loginCheck(userEntity user, HttpSession session) {
         userEntity userGet = userService.getUserByUserTel(user.getUserTel());
         if (userGet != null && userGet.getUserPassword().equals(user.getUserPassword())) {

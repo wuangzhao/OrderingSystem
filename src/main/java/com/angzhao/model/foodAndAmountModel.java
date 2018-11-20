@@ -1,8 +1,10 @@
-package com.angzhao.entity;
+package com.angzhao.model;
 
-public class foodAndAmount {
+import com.angzhao.entity.foodEntity;
 
-    private foodEntity foodEntity;
+public class foodAndAmountModel {
+
+    private com.angzhao.entity.foodEntity foodEntity;
 
     private int foodAmount;
 

@@ -1,7 +1,7 @@
 package com.angzhao.service.Impl;
 
 import com.angzhao.dao.orderFormDao;
-import com.angzhao.entity.orderFormDetailEntity;
+import com.angzhao.model.orderFormDetailModel;
 import com.angzhao.entity.orderFormEntity;
 import com.angzhao.service.orderFormService;
 import com.angzhao.util.orderFormUtil;
@@ -61,11 +61,11 @@ public class orderFormServiceImpl implements orderFormService {
 
     private void getOrderFormDetail(List<orderFormEntity> orderFormList) {
         for (orderFormEntity orderForm : orderFormList) {
-            List<orderFormDetailEntity> orderFormDetailList = orderFormDao.queryOrderFormDetailByOrderFrom(orderForm);
+            List<orderFormDetailModel> orderFormDetailList = orderFormDao.queryOrderFormDetailByOrderFrom(orderForm);
             orderForm.setStatus(orderFormUtil.translate(orderForm.getStatus()));
             int totalPrice = 0;
             int totalAmount = 0;
-            for (orderFormDetailEntity orderFormDetail : orderFormDetailList) {
+            for (orderFormDetailModel orderFormDetail : orderFormDetailList) {
                 orderFormDetail.setTotalPrice(orderFormDetail.getAmount() * orderFormDetail.getFoodPrice());
                 totalPrice += orderFormDetail.getTotalPrice();
                 totalAmount += orderFormDetail.getAmount();
@@ -111,9 +111,9 @@ public class orderFormServiceImpl implements orderFormService {
     }
 
     @Override
-    public orderFormDetailEntity insertOrderFormDetail(orderFormDetailEntity orderFormDetailEntity) {
-        if (orderFormDao.insertOrderFormDetail(orderFormDetailEntity) == 1) {
-            return orderFormDetailEntity;
+    public orderFormDetailModel insertOrderFormDetail(orderFormDetailModel orderFormDetailModel) {
+        if (orderFormDao.insertOrderFormDetail(orderFormDetailModel) == 1) {
+            return orderFormDetailModel;
         } else {
             return null;
         }

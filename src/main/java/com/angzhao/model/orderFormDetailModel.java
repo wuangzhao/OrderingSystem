@@ -1,6 +1,6 @@
-package com.angzhao.entity;
+package com.angzhao.model;
 
-public class orderFormDetailEntity {
+public class orderFormDetailModel {
 
     private String orderFormId;
 
@@ -74,7 +74,7 @@ public class orderFormDetailEntity {
 
     @Override
     public String toString() {
-        return "orderFormDetailEntity{" +
+        return "orderFormDetailModel{" +
                 "foodId='" + foodId + '\'' +
                 ", foodName='" + foodName + '\'' +
                 ", foodImg='" + foodImg + '\'' +

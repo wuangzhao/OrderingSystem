@@ -2,7 +2,6 @@ package com.angzhao.web;
 
 import com.angzhao.entity.foodEntity;
 import com.angzhao.service.foodService;
-import com.angzhao.service.recommendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,15 +16,11 @@ public class recommendController {
     @Autowired
     foodService foodService;
 
-    @Autowired
-    recommendService recommendService;
-
-
     @RequestMapping("")
     public String recommendPage(Model model) {
 
 
-        List<foodEntity> foodEntityList = recommendService.getRecommendList();
+        List<foodEntity> foodEntityList = foodService.getAllFoodList();
 
         model.addAttribute("foods", foodEntityList);
 

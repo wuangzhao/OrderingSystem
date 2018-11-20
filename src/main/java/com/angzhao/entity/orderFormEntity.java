@@ -1,5 +1,7 @@
 package com.angzhao.entity;
 
+import com.angzhao.model.orderFormDetailModel;
+
 import java.util.List;
 
 public class orderFormEntity {
@@ -16,7 +18,7 @@ public class orderFormEntity {
 
     private int totalAmount;
 
-    private List<orderFormDetailEntity> orderFormDetailList;
+    private List<orderFormDetailModel> orderFormDetailList;
 
     public String getCreateTime() {
         return createTime;
@@ -43,12 +45,12 @@ public class orderFormEntity {
     }
 
 
-    public List<orderFormDetailEntity> getOrderFormDetailList() {
+    public List<orderFormDetailModel> getOrderFormDetailList() {
 
         return orderFormDetailList;
     }
 
-    public void setOrderFormDetailList(List<orderFormDetailEntity> orderFormDetailList) {
+    public void setOrderFormDetailList(List<orderFormDetailModel> orderFormDetailList) {
         this.orderFormDetailList = orderFormDetailList;
     }
 
