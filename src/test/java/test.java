@@ -1,12 +1,10 @@
 import com.angzhao.entity.userEntity;
-import com.angzhao.enums.orderFormEnums;
 import com.angzhao.service.userService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.util.ArrayList;

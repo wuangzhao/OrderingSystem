@@ -29,6 +29,5 @@
     <img src="../images/success.png">
     <h1>成功</h1>
 </div>
-
 </body>
 </html>
